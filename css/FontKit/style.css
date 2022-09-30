@@ -1,0 +1,50 @@
+/* Cubano */
+@font-face {
+   font-family: 'Cubano';
+   font-style: normal;
+   font-weight: normal;
+   src: url('Cubano/Cubano.woff') format('woff');
+}
+
+/* Cera Round Pro */
+@font-face {
+   font-family: 'Cera Round Pro Thin';
+   font-style: normal;
+   font-weight: normal;
+   src: url('CeraRoundPro/CeraRoundProThin.woff') format('woff');
+}
+
+@font-face {
+   font-family: 'Cera Round Pro Light';
+   font-style: normal;
+   font-weight: normal;
+   src: url('CeraRoundPro/CeraRoundProLight.woff') format('woff');
+}
+
+@font-face {
+   font-family: 'Cera Round Pro Regular';
+   font-style: normal;
+   font-weight: normal;
+   src: url('CeraRoundPro/CeraRoundProRegular.woff') format('woff');
+}
+
+@font-face {
+   font-family: 'Cera Round Pro Medium';
+   font-style: normal;
+   font-weight: normal;
+   src: url('CeraRoundPro/CeraRoundProMedium.woff') format('woff');
+}
+
+@font-face {
+   font-family: 'Cera Round Pro Bold';
+   font-style: normal;
+   font-weight: normal;
+   src: url('CeraRoundPro/CeraRoundProBold.woff') format('woff');
+}
+
+@font-face {
+   font-family: 'Cera Round Pro Black';
+   font-style: normal;
+   font-weight: normal;
+   src: url('CeraRoundPro/CeraRoundProBlack.woff') format('woff');
+}

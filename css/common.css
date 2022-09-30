@@ -1,0 +1,101 @@
+/* --------------- Fonts --------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --------------- Root Vars --------------- */
+:root {
+   /* https://materialui.co/flatuicolors */
+   --pomegranate: #C0392B;
+   --pomegranate-bg: url(/images/pomegranate.svg);
+   --pumpkin: #D35400;
+   --pumpkin-bg: url(/images/pumpkin.svg);
+   --carrot: #E67E22;
+   --carrot-bg: url(/images/carrot.svg);
+   --orange: #F39C12;
+   --orange-bg: url(/images/carrot.svg);
+   --sunflower: #F1C40F;
+   --sunflower-bg: url(/images/sunflower.svg);
+   --emerland: #2ECC71;
+   --emerland-bg: url(/images/emerland.svg);
+   --nephritis: #27AE60;
+   --nephritis-bg: url(/images/nephritis.svg);
+   --greensea: #16A085;
+   --greensea-bg: url(/images/greensea.svg);
+   --belizehole: #2980B9;
+   --belizehole-bg: url(/images/belizehole.svg);
+   --peterriver: #3498DB;
+   --peterriver-bg: url(/images/belizehole.svg);
+   --amethyst: #9B59B6;
+   --amethyst-bg: url(/images/wisteria.svg);
+   --wisteria: #8E44AD;
+   --wisteria-bg: url(/images/wisteria.svg);
+   --wetasphalt: #34495E;
+   --wetasphalt-bg: url(/images/midnightblue.svg);
+   --asbestos: #7F8C8D;
+   --asbestos-bg: url(/images/asbestos.svg);
+   --silver: #BDC3C7;
+   --silver-bg: url(/images/silver.svg);
+   /* Main Colors */
+   --theme: var(--belizehole);
+   --theme-bg: var(--belizehole-bg);
+   --gloss-bg: #FFF9;
+   --white: #ECF0F1;
+   /* Gradient Colors */
+   --blue-light: #00C0CE;
+   --blue-dark: #0180BB;
+}
+
+/* --------------- Custom Themes --------------- */
+body.pomegranate-theme { --theme: var(--pomegranate); --theme-bg: var(--pomegranate-bg) }
+body.pumpkin-theme { --theme: var(--pumpkin); --theme-bg: var(--pumpkin-bg) }
+body.carrot-theme { --theme: var(--carrot); --theme-bg: var(--carrot-bg) }
+body.orange-theme { --theme: var(--orange); --theme-bg: var(--orange-bg) }
+body.sunflower-theme { --theme: var(--sunflower); --theme-bg: var(--sunflower-bg) }
+body.emerland-theme { --theme: var(--emerland); --theme-bg: var(--emerland-bg) }
+body.nephritis-theme { --theme: var(--nephritis); --theme-bg: var(--nephritis-bg) }
+body.greensea-theme { --theme: var(--greensea); --theme-bg: var(--greensea-bg) }
+body.belizehole-theme { --theme: var(--belizehole); --theme-bg: var(--belizehole-bg) }
+body.peterriver-theme { --theme: var(--peterriver); --theme-bg: var(--peterriver-bg) }
+body.amethyst-theme { --theme: var(--amethyst); --theme-bg: var(--amethyst-bg) }
+body.wisteria-theme { --theme: var(--wisteria); --theme-bg: var(--wisteria-bg) }
+body.wetasphalt-theme { --theme: var(--wetasphalt); --theme-bg: var(--wetasphalt-bg) }
+body.asbestos-theme { --theme: var(--asbestos); --theme-bg: var(--asbestos-bg) }
+body.silver-theme { --theme: var(--silver); --theme-bg: var(--silver-bg) }
+
+/* --------------- Custom Scrollbar --------------- */
+::-webkit-scrollbar {
+   height: 0;
+   width: 0;
+}
+::-webkit-scrollbar-corner {
+   height: 0;
+   width: 0;
+}
+
+/* --------------- Body --------------- */
+*:not(i) {
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+body {
+   display: grid;
+   min-height: 100vh;
+   font-family: 'Rubik', sans-serif;
+}
+
+/* --------------- Text Properties --------------- */
+.bold { font-weight: bold }
+.italic { font-style: italic }
+.underline { text-decoration: underline }
+
+/* --------------- No Photo Drag --------------- */
+img {
+   -webkit-user-drag: none;
+   -khtml-user-drag: none;
+   -moz-user-drag: none;
+   -o-user-drag: none;
+}

@@ -1,0 +1,53 @@
+#header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 60px;
+   width: 100%;
+   padding: 10px 80px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background: var(--gloss-bg);
+   backdrop-filter: blur(3px);
+   z-index: 1;
+}
+
+#header .logo {
+   font-family: 'Cubano';
+   color: var(--theme);
+   font-weight: 700;
+   font-size: 2em;
+   text-decoration: none;
+}
+#header .logo:hover { border-bottom: 3px solid var(--theme) }
+
+#header ul {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+#header ul li {
+   list-style: none;
+   margin-left: 15px;
+}
+
+#header ul li a {
+   text-decoration: none;
+   padding: 6px 15px;
+   font-size: 16px;
+   color: var(--theme);
+   border: 3px solid var(--theme);
+   border-radius: 20px;
+   transition: .3s;
+}
+#header ul li a:hover {
+   background: var(--theme);
+   color: #fff;
+   cursor: pointer;
+}
+
+#header ul li a i {
+   padding-left: 2px;
+   font-size: 14px;
+}
