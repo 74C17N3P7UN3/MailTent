@@ -5,3 +5,87 @@ body {
    background-size: 100%;
    background-position: bottom;
 }
+
+div#body-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+}
+
+div#watermark h1,
+div#watermark h4 {
+   font-family: 'Cubano';
+   color: var(--white);
+}
+div#watermark h1 { font-size: 6em }
+div#watermark h4 { font-size: 2em }
+
+div.auth-form {
+   width: 25vw;
+   display: grid;
+   padding: 20px 20px;
+   background: var(--gloss-bg);
+   border-radius: 10px;
+   border: 3px solid var(--white);
+}
+div.auth-form.hidden { display: none }
+
+div.auth-form label {
+   margin-bottom: 5px;
+}
+
+div.psw-container { position: relative }
+div.auth-form input {
+   width: 100%;
+   padding: 3px 8px;
+   border: 2px solid #000;
+   border-radius: 3px;
+   margin-bottom: 10px;
+   transition: .2s;
+}
+div.auth-form input[type="password"] { padding: 3px 32px 3px 8px }
+div.auth-form input:focus { border: 2px solid var(--theme) }
+
+div.psw-container span.toggle-password {
+   position: absolute;
+   top: 3px;
+   right: 10px;
+   color: #000;
+   cursor: pointer;
+}
+div.psw-container span.toggled { color: var(--theme) }
+
+div.auth-form span.customize-theme {
+   margin-bottom: 10px;
+   cursor: pointer;
+   transition: .2s;
+}
+div.auth-form span.customize-theme:hover { color: var(--theme) }
+
+div.auth-form input[type="submit"] {
+   padding: 3px 8px;
+   background: transparent;
+   border: 2px solid #000;
+   border-radius: 3px;
+   font-family: 'Rubik', sans-serif;
+   cursor: pointer;
+   transition: .2s;
+}
+div.auth-form input[type="submit"]:hover,
+div.auth-form input[type="submit"]:focus { background: var(--theme) }
+
+div#login-register {
+   width: 25vw;
+   margin-top: 10px;
+   justify-content: center;
+   display: grid;
+   padding: 10px 20px;
+   background: var(--gloss-bg);
+   border-radius: 10px;
+   border: 3px solid var(--white);
+}
+div#login-register a {
+   color: var(--theme);
+   cursor: pointer;
+}
+div#login-register a:hover { border-bottom: 2px solid var(--theme) }
