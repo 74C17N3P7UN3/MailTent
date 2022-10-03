@@ -1,3 +1,4 @@
+/* --------------- Body --------------- */
 body {
    overflow: hidden;
    /* Background */
@@ -12,6 +13,7 @@ div#body-container {
    justify-content: space-evenly;
 }
 
+/* --------------- Watermark and slogan --------------- */
 div#watermark h1,
 div#watermark h4 {
    font-family: 'Cubano';
@@ -20,6 +22,7 @@ div#watermark h4 {
 div#watermark h1 { font-size: 6em }
 div#watermark h4 { font-size: 2em }
 
+/* --------------- Auth Forms --------------- */
 div.auth-form {
    width: 25vw;
    display: grid;
@@ -30,16 +33,14 @@ div.auth-form {
 }
 div.auth-form.hidden { display: none }
 
-div.auth-form label {
-   margin-bottom: 5px;
-}
-
+/* --------------- Password Container --------------- */
 div.psw-container { position: relative }
 div.auth-form input {
    width: 100%;
    padding: 3px 8px;
    border: 2px solid #000;
    border-radius: 3px;
+   margin-top: 5px;
    margin-bottom: 10px;
    transition: .2s;
 }
@@ -48,32 +49,36 @@ div.auth-form input:focus { border: 2px solid var(--theme) }
 
 div.psw-container span.toggle-password {
    position: absolute;
-   top: 3px;
+   top: 8px;
    right: 10px;
    color: #000;
    cursor: pointer;
 }
 div.psw-container span.toggled { color: var(--theme) }
 
+/* --------------- Customize Theme Button --------------- */
 div.auth-form span.customize-theme {
-   margin-bottom: 10px;
    cursor: pointer;
    transition: .2s;
 }
 div.auth-form span.customize-theme:hover { color: var(--theme) }
 
+/* --------------- Submit Button --------------- */
 div.auth-form input[type="submit"] {
    padding: 3px 8px;
    background: transparent;
    border: 2px solid #000;
    border-radius: 3px;
+   margin-block: 0;
    font-family: 'Rubik', sans-serif;
    cursor: pointer;
    transition: .2s;
 }
+div.auth-form#register input[type="submit"] { margin-top: 10px }
 div.auth-form input[type="submit"]:hover,
 div.auth-form input[type="submit"]:focus { background: var(--theme) }
 
+/* --------------- Switch Form Button --------------- */
 div#login-register {
    width: 25vw;
    margin-top: 10px;

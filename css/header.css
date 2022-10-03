@@ -1,3 +1,4 @@
+/* --------------- General Properites --------------- */
 #header {
    position: fixed;
    top: 0;
@@ -13,6 +14,7 @@
    z-index: 1;
 }
 
+/* --------------- Logo --------------- */
 #header .logo {
    font-family: 'Cubano';
    color: var(--theme);
@@ -22,6 +24,7 @@
 }
 #header .logo:hover { border-bottom: 3px solid var(--theme) }
 
+/* --------------- Menu List --------------- */
 #header ul {
    display: flex;
    align-items: center;

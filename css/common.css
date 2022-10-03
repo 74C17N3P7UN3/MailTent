@@ -108,3 +108,36 @@ div#loading-wait {
    background: #2C3E50;
    z-index: 100;
 }
+
+/* --------------- Theme Selection Popup --------------- */
+div#color-container {
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: var(--gloss-bg);
+   backdrop-filter: blur(10px);
+}
+div#color-container.hidden { display: none }
+
+div#color-wrapper {
+   padding: 20px;
+   text-align: center;
+   background: var(--white);
+   border-radius: 10px;
+}
+
+span#color-name {
+   font-size: 1.5em;
+   text-transform: capitalize;
+}
+
+div#color-selection { margin-top: 10px }
+div#color-selection i {
+   font-size: 50px;
+   -webkit-text-stroke: 1px #000;
+   margin-right: 5px;
+   cursor: pointer;
+}
