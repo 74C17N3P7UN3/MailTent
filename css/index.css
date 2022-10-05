@@ -91,6 +91,14 @@ div.auth-form#register input[type="submit"] { margin-top: 10px }
 div.auth-form input[type="submit"]:hover,
 div.auth-form input[type="submit"]:focus { background: var(--theme) }
 
+/* --------------- Flags Box --------------- */
+div.auth-form div.label-container {
+   display: flex;
+   justify-content: space-between;
+}
+
+div.label-container span.flag { color: #f00 }
+
 /* --------------- Switch Form Button --------------- */
 div#login-register {
    width: 25vw;
