@@ -51,21 +51,27 @@
          </div>
          <div id="register" class="auth-form hidden">
             <form action="php/register.php" method="post">
-               <label for="username">Username</label>
+               <div class="label-container">
+                  <label for="username">Username</label>
+                  <span id="register-username-flags" class="flag"></span>
+               </div>
                <input type="text" name="username" required>
-               <span id="register-username-flags" class="flag"></span>
-               <label for="email">Email</label>
+               <div class="label-container">
+                  <label for="email">Email</label>
+                  <span id="register-email-flags" class="flag"></span>
+               </div>
                <div class="email-container">
                   <input type="text" name="email" required>
                   <span class="email-suffix">@mailtent.com</span>
                </div>
-               <span id="register-email-flags" class="flag"></span>
-               <label for="password">Password</label>
+               <div class="label-container">
+                  <label for="password">Password</label>
+                  <span id="register-password-flags" class="flag"></span>
+               </div>
                <div class="psw-container">
                   <input type="password" name="password" required>
                   <span class="toggle-password"><i class="fa-solid fa-eye"></i></span>
                </div>
-               <span id="register-password-flags" class="flag"></span>
                <span class="customize-theme">
                   Customize Theme <i class="fa-solid fa-palette"></i>
                </span>

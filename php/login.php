@@ -4,6 +4,7 @@ $fileName = "../database/accounts.db";
 /* --------------- Get User Input --------------- */
 $email = $_POST['email'];
 $password = $_POST['password'];
+
 /* --------------- Create Db's Entry --------------- */
 $emailEntry = ", email='$email'";
 $pswEntry = ", password='$password']";
