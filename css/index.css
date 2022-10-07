@@ -98,7 +98,9 @@ div.auth-form div.label-container {
 }
 
 div.label-container span.flag { color: var(--pomegranate) }
-div.label-container span.flag.clear { color: var(--greensea) }
+div.label-container span.flag.blue { color: var(--belizehole) }
+div.label-container span.flag.green { color: var(--greensea) }
+div.label-container span.flag.orange { color: var(--orange) }
 
 /* --------------- Switch Form Button --------------- */
 div#login-register {
