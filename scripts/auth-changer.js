@@ -13,7 +13,7 @@ function authLogin() {
 
    register.classList.add('hidden')
    login.classList.remove('hidden')
-   switchP.innerHTML = 'New to MailTent? <a scope="register">Sign Up</a>.'
+   switchP.innerHTML = 'New to MailTent? <a>Sign Up</a>.'
    fetchSwitchBtn()
 
 }
@@ -21,7 +21,7 @@ function authRegister() {
 
    login.classList.add('hidden')
    register.classList.remove('hidden')
-   switchP.innerHTML = 'Already a user? <a scope="login">Sign In</a>.'
+   switchP.innerHTML = 'Already a user? <a>Sign In</a>.'
    fetchSwitchBtn()
 
 }
@@ -34,8 +34,7 @@ function fetchSwitchBtn() {
 }
 function authSwitch() {
 
-   let scope = switchBtn.getAttribute('scope')
-   if (scope == 'register') authRegister()
+   if (switchBtn.innerHTML.includes('Up')) authRegister()
    else authLogin()
 
 }
