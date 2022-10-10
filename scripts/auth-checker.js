@@ -1,69 +1,97 @@
 /* --------------- Flags Messages --------------- */
+let charInvalid = '<i class="fa-solid fa-circle-xmark"></i> Illegal character'
+let charValid = '<i class="fa-solid fa-circle-check"></i> Correct format'
+
+let userLength = '<i class="fa-solid fa-circle-xmark"></i> Max 16 characters'
 let email404 = '<i class="fa-solid fa-circle-exclamation"></i> Email not found'
-let emailValid = '<i class="fa-solid fa-circle-check"></i> Correct format'
-let emailInvalid = '<i class="fa-solid fa-circle-xmark"></i> Illegal character'
-let pswError = '<i class="fa-solid fa-circle-exclamation"></i> Password incorrect'
-let pswInvalid = '<i class="fa-solid fa-circle-xmark"></i> Illegal character'
+let emailTaken = '<i class="fa-solid fa-circle-exclamation"></i> Email already taken'
+let pswWrong = '<i class="fa-solid fa-circle-exclamation"></i> Password incorrect'
+
 let pswVeryWeak = '<i class="fa-solid fa-thumbs-down"></i> Very Weak'
 let pswWeak = '<i class="fa-solid fa-thumbs-down"></i> Weak'
 let pswMedium = '<i class="fa-solid fa-unlock"></i> Medium'
 let pswStrong = '<i class="fa-solid fa-lock"></i> Strong'
 let pswVeryStrong = '<i class="fa-solid fa-medal"></i> Amazing!'
 
-/* --------------- Login With Cookies --------------- */
-let flags = document.cookie
+/* --------------- PHP Flag Detection With Cookies --------------- */
+let cookieList, cookieArr; getCookies()
 
-if (flags.includes('login-email-flags'))
+if (cookieList.includes('login-email-flags1'))
+   document.getElementById('login-email-flags').innerHTML = charInvalid
+if (cookieList.includes('login-email-flags2'))
    document.getElementById('login-email-flags').innerHTML = email404
-if (flags.includes('login-password-flags'))
-   document.getElementById('login-password-flags').innerHTML = pswError
+if (cookieList.includes('login-password-flags1'))
+   document.getElementById('login-password-flags').innerHTML = charInvalid
+if (cookieList.includes('login-password-flags2'))
+   document.getElementById('login-password-flags').innerHTML = pswWrong
+
+if (cookieList.includes('register')) authRegister() // auth-changer.js
+if (cookieList.includes('register-username-flags1'))
+   document.getElementById('register-username-flags').innerHTML = charInvalid
+if (cookieList.includes('register-email-flags1'))
+   document.getElementById('register-email-flags').innerHTML = charInvalid
+if (cookieList.includes('register-email-flags2'))
+   document.getElementById('register-email-flags').innerHTML = emailTaken
+if (cookieList.includes('register-password-flags1'))
+   document.getElementById('register-password-flags').innerHTML = charInvalid
 
 deleteCookies()
+getCookies() // Clear in case of a console.log
 
-/* Credits: geeksforgeeks.org */
-function deleteCookies() {
-   let cookies = flags.split(";");
+function getCookies() {
 
-   for (var i = 0; i < cookies.length; i++)
-      document.cookie = cookies[i] + "=;expires="
-         + new Date(0).toUTCString();
+   cookieList = decodeURIComponent(document.cookie)
+   cookieArr = cookieList.split(";");
+
 }
 
-/* --------------- Registration --------------- */
-let regEmailInput = document.querySelector('div#register input[name="email"]')
-let regEmailFlags = document.getElementById('register-email-flags')
+function deleteCookies() {
 
-let allowedEmailChars = /[^a-z0-9.]/g
-regEmailInput.addEventListener('keyup', () => {
-   if (regEmailInput.value.match(allowedEmailChars)) {
-      regEmailFlags.innerHTML = emailInvalid
-      regEmailFlags.classList.remove('green')
-   }
-   else {
-      regEmailFlags.innerHTML = emailValid
-      regEmailFlags.classList.add('green')
-   }
+   for (let i = 0; i < cookieArr.length; i++)
+      document.cookie = cookieArr[i] + "=;expires=" + new Date(0).toUTCString();
 
-   if (regEmailInput.value == '')
-      regEmailFlags.innerHTML = ''
+}
+
+/* --------------- Allowed Charsets --------------- */
+let usernameChars = /[^a-zA-Z0-9!@#*]/
+let emailChars = /[^a-z0-9.]/
+let pswChars = /[^a-zA-Z0-9!@#$%^&*]/
+
+/* --------------- Check Login Section --------------- */
+let logEmailInput = document.getElementById('login-email')
+let logEmailFlags = document.getElementById('login-email-flags')
+let logPswInput = document.getElementById('login-psw')
+let logPswFlags = document.getElementById('login-password-flags')
+
+logEmailInput.addEventListener('keyup', () => {
+   checkValid(logEmailInput, logEmailFlags, emailChars, false)
+})
+logPswInput.addEventListener('keyup', () => {
+   checkValid(logPswInput, logPswFlags, pswChars, false)
 })
 
-let regPswInput = document.querySelector('div#register input[name="password"]')
+/* --------------- Check Registration Section --------------- */
+let regUsernameInput = document.getElementById('reg-username')
+let regUsernameFlags = document.getElementById('register-username-flags')
+let regEmailInput = document.getElementById('reg-email')
+let regEmailFlags = document.getElementById('register-email-flags')
+let regPswInput = document.getElementById('reg-psw')
 let regPswFlags = document.getElementById('register-password-flags')
 
-let allowedPswChars = /[^a-zA-Z0-9!@#$%^&*]/g
-let lowercaseChars = /[a-z]/
-let uppercaseChars = /[A-Z]/
-let numbers = /[0-9]/
-let symbols = /[!@#$%^&*]/
-let length = /.{8,}/
+regUsernameInput.addEventListener('keyup', () => {
+   checkValid(regUsernameInput, regUsernameFlags, usernameChars, true)
+})
+regEmailInput.addEventListener('keyup', () => {
+   checkValid(regEmailInput, regEmailFlags, emailChars, false)
+})
 regPswInput.addEventListener('keyup', () => {
+
    let strength = 0;
-   if (regPswInput.value.match(lowercaseChars)) strength++;
-   if (regPswInput.value.match(uppercaseChars)) strength++;
-   if (regPswInput.value.match(numbers)) strength++;
-   if (regPswInput.value.match(symbols)) strength++;
-   if (regPswInput.value.match(length)) strength++;
+   if (regPswInput.value.match(/[a-z]/)) strength++;
+   if (regPswInput.value.match(/[A-Z]/)) strength++;
+   if (regPswInput.value.match(/[0-9]/)) strength++;
+   if (regPswInput.value.match(/[!@#$%^&*]/)) strength++;
+   if (regPswInput.value.match(/.{8,}/)) strength++;
 
    if (strength == 1) regPswFlags.innerHTML = pswVeryWeak
    else if (strength == 2) regPswFlags.innerHTML = pswWeak
@@ -83,11 +111,33 @@ regPswInput.addEventListener('keyup', () => {
       regPswFlags.classList.add('blue')
    }
 
-   if (regPswInput.value.match(allowedPswChars)) {
+   if (regPswInput.value.match(pswChars)) {
       regPswFlags.innerHTML = pswInvalid
       regPswFlags.classList.remove('blue', 'green', 'orange')
    }
 
    if (regPswInput.value == '')
       regPswFlags.innerHTML = ''
+
 })
+
+/* --------------- Function To Check Valid --------------- */
+function checkValid(input, flags, charset, checkLen) {
+
+   if (input.value.match(charset)) {
+      flags.innerHTML = charInvalid
+      flags.classList.remove('green')
+   }
+   else if (checkLen && input.value.length > 16) {
+      flags.innerHTML = userLength
+      flags.classList.remove('green')
+   }
+   else {
+      flags.innerHTML = charValid
+      flags.classList.add('green')
+   }
+
+   if (input.value == '')
+      flags.innerHTML = ''
+
+}

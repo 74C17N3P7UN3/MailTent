@@ -46,7 +46,8 @@ div.auth-form input:focus { border: 2px solid var(--theme) }
 
 /* --------------- Email Container --------------- */
 div.email-container { position: relative }
-div.auth-form input[name="email"] { padding: 3px 125px 3px 8px }
+div.auth-form input[name="login-email"],
+div.auth-form input[name="reg-email"] { padding: 3px 125px 3px 8px }
 
 div.email-container span.email-suffix {
    position: absolute;
@@ -58,7 +59,7 @@ div.email-container span.email-suffix {
 
 /* --------------- Password Container --------------- */
 div.psw-container { position: relative }
-div.auth-form input[name="password"] { padding: 3px 32px 3px 8px }
+div.auth-form input[type="password"] { padding: 3px 32px 3px 8px }
 
 div.psw-container span.toggle-password {
    position: absolute;
@@ -90,6 +91,8 @@ div.auth-form input[type="submit"] {
 div.auth-form#register input[type="submit"] { margin-top: 10px }
 div.auth-form input[type="submit"]:hover,
 div.auth-form input[type="submit"]:focus { background: var(--theme) }
+
+div.auth-form input[disabled]:hover { cursor: not-allowed }
 
 /* --------------- Flags Box --------------- */
 div.auth-form div.label-container {

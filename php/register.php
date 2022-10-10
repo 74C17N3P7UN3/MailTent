@@ -2,37 +2,49 @@
 $fileName = "../database/accounts.db";
 
 /* --------------- Get User Input --------------- */
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$username = $_POST['reg-username'];
+$email = $_POST['reg-email'];
+$password = $_POST['reg-psw'];
 
 /* --------------- Create Db's Entry --------------- */
 $usernameEntry = "[username='$username'";
 $emailEntry = ", email='$email'";
 $pswEntry = ", password='$password']";
-$dbEntry = "[username='$username', email='$email', password='$password']";
+$dbEntry = $usernameEntry . $emailEntry . $pswEntry;
 
-/* --------------- Check Duplicate Email --------------- */
+/* --------------- Check If Valid --------------- */
 $pointerFile = fopen($fileName, 'r');
 $contents = fread($pointerFile, filesize($fileName));
 fclose($pointerFile);
 
-if (str_contains($contents, $emailEntry))
-   setcookie('register-email-flags', 'WhyAreYouHere?', 0, '/');
-else if(str_contains($contents, $emailEntry))
+$flag = false;
+// Username doesn't respect conditions
+if (preg_match('/[^a-zA-Z0-9!@#*]/', $username)) {
+   setcookie('register-username-flags1', 'WhyAreYouHere?', 0, '/');
+   $flag = true;
+} // Email doesn't respect conditions
+if (preg_match('/[^a-z0-9.]/', $email)) {
+   setcookie('register-email-flags1', 'WhyAreYouHere?', 0, '/');
+   $flag = true;
+} // Email is already taken
+if (str_contains($contents, $emailEntry)) {
+   setcookie('register-email-flags2', 'WhyAreYouHere?', 0, '/');
+   $flag = true;
+} // Password doesn't respect conditions
+if (preg_match('/[^a-zA-Z0-9!@#$%^&*]/', $password)) {
+   setcookie('register-password-flags1', 'WhyAreYouHere?', 0, '/');
+   $flag = true;
+}
 
-/* --------------- Check Valid Psw --------------- */
+/* --------------- Register Account --------------- */
+if (!$flag) {
+   $pointerFile = fopen($fileName, 'a');
+   fwrite($pointerFile, $dbEntry . "\n");
+   fclose($pointerFile);
 
-/* ---------------  --------------- */
-$pointerFile = fopen($pointerFile, 'r');
-$contents = fread($handle, filesize($filename));
+   header('location: /inbox.html');
+   exit;
+}
 
-if (str_contains($contents, "email='$email'"))
-   echo "This email already exist.";
-
-fclose($pointerFile);
-
-/* --------------- Actually Write --------------- */
-$pointerFile = fopen($filename, 'a');
-fwrite($pointerFile, $somecontent);
-fclose($pointerFile);
+header('location: /index.html');
+exit;
