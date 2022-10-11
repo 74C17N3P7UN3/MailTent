@@ -41,14 +41,14 @@ getCookies() // Clear in case of a console.log
 function getCookies() {
 
    cookieList = decodeURIComponent(document.cookie)
-   cookieArr = cookieList.split(";");
+   cookieArr = cookieList.split(';');
 
 }
 
 function deleteCookies() {
 
    for (let i = 0; i < cookieArr.length; i++)
-      document.cookie = cookieArr[i] + "=;expires=" + new Date(0).toUTCString();
+      document.cookie = cookieArr[i] + '=;expires=' + new Date(0).toUTCString()
 
 }
 
@@ -151,14 +151,24 @@ function checkValid(input, flags, charset, checkLen) {
 function setSubmit() {
 
    if ((logEmailInput.value.match(emailChars))
-      || logPswInput.value.match(pswChars))
+      || logPswInput.value.match(pswChars)) {
+      document.cookie += 'login-submit-flag=WhyAreYouHere;'
       logSubmit.setAttribute('disabled', '')
-   else logSubmit.removeAttribute('disabled')
+   }
+   else {
+      deleteCookies()
+      logSubmit.removeAttribute('disabled')
+   }
 
    if ((regUserInput.value.match(usernameChars))
       || regEmailInput.value.match(emailChars)
-      || regPswInput.value.match(pswChars))
+      || regPswInput.value.match(pswChars)) {
+      document.cookie += 'reg-submit-flag=WhyAreYouHere;'
       regSubmit.setAttribute('disabled', '')
-   else regSubmit.removeAttribute('disabled')
+   }
+   else {
+      deleteCookies()
+      regSubmit.removeAttribute('disabled')
+   }
 
 }

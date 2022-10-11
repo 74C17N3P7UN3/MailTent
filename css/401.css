@@ -1,0 +1,47 @@
+*:not(i) {
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   box-sizing: border-box;
+}
+
+body {
+   display: grid;
+   height: 100vh;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   font-family: 'Cubano', sans-serif;
+   background: #C0392B;
+}
+
+body * {
+   opacity: 0;
+   transform: translateY(20px);
+   animation: fade 2s ease forwards;
+}
+
+@keyframes fade {
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+h1 {
+   font-size: 3.5em;
+   margin-bottom: 5vh;
+}
+
+a {
+   margin: auto;
+   font-size: 2em;
+   color: #000;
+   text-decoration: none;
+   transition: .2s;
+}
+
+a:hover {
+   color: #fff;
+   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}

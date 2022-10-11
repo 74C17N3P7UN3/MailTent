@@ -1,6 +1,12 @@
 <?php
 $fileName = "../database/accounts.db";
 
+/* --------------- Check For Cheats --------------- */
+if (isset($_COOKIE['reg-submit-flag'])) {
+   header('location: /pages/401.html');
+   exit;
+}
+
 /* --------------- Get User Input --------------- */
 $username = $_POST['reg-username'];
 $email = $_POST['reg-email'];

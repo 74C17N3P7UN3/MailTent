@@ -1,6 +1,12 @@
 <?php
 $fileName = "../database/accounts.db";
 
+/* --------------- Check For Cheats --------------- */
+if (isset($_COOKIE['login-submit-flag'])) {
+   header('location: /pages/401.html');
+   exit;
+}
+
 /* --------------- Get User Input --------------- */
 $email = $_POST['login-email'];
 $password = $_POST['login-psw'];
