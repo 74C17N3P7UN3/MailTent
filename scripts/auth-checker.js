@@ -62,6 +62,7 @@ let logEmailInput = document.getElementById('login-email')
 let logEmailFlags = document.getElementById('login-email-flags')
 let logPswInput = document.getElementById('login-psw')
 let logPswFlags = document.getElementById('login-password-flags')
+let logSubmit = document.getElementById('login-submit')
 
 logEmailInput.addEventListener('keyup', () => {
    checkValid(logEmailInput, logEmailFlags, emailChars, false)
@@ -71,15 +72,16 @@ logPswInput.addEventListener('keyup', () => {
 })
 
 /* --------------- Check Registration Section --------------- */
-let regUsernameInput = document.getElementById('reg-username')
+let regUserInput = document.getElementById('reg-username')
 let regUsernameFlags = document.getElementById('register-username-flags')
 let regEmailInput = document.getElementById('reg-email')
 let regEmailFlags = document.getElementById('register-email-flags')
 let regPswInput = document.getElementById('reg-psw')
 let regPswFlags = document.getElementById('register-password-flags')
+let regSubmit = document.getElementById('reg-submit')
 
-regUsernameInput.addEventListener('keyup', () => {
-   checkValid(regUsernameInput, regUsernameFlags, usernameChars, true)
+regUserInput.addEventListener('keyup', () => {
+   checkValid(regUserInput, regUsernameFlags, usernameChars, true)
 })
 regEmailInput.addEventListener('keyup', () => {
    checkValid(regEmailInput, regEmailFlags, emailChars, false)
@@ -119,6 +121,8 @@ regPswInput.addEventListener('keyup', () => {
    if (regPswInput.value == '')
       regPswFlags.innerHTML = ''
 
+   setSubmit()
+
 })
 
 /* --------------- Function To Check Valid --------------- */
@@ -139,5 +143,22 @@ function checkValid(input, flags, charset, checkLen) {
 
    if (input.value == '')
       flags.innerHTML = ''
+
+   setSubmit()
+
+}
+
+function setSubmit() {
+
+   if ((logEmailInput.value.match(emailChars))
+      || logPswInput.value.match(pswChars))
+      logSubmit.setAttribute('disabled', '')
+   else logSubmit.removeAttribute('disabled')
+
+   if ((regUserInput.value.match(usernameChars))
+      || regEmailInput.value.match(emailChars)
+      || regPswInput.value.match(pswChars))
+      regSubmit.setAttribute('disabled', '')
+   else regSubmit.removeAttribute('disabled')
 
 }

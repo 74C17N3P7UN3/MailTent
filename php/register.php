@@ -20,19 +20,19 @@ fclose($pointerFile);
 $flag = false;
 // Username doesn't respect conditions
 if (preg_match('/[^a-zA-Z0-9!@#*]/', $username)) {
-   setcookie('register-username-flags1', 'WhyAreYouHere?', 0, '/');
+   setcookie('register-username-flags1', 'WhyAreYouHere', 0, '/');
    $flag = true;
 } // Email doesn't respect conditions
 if (preg_match('/[^a-z0-9.]/', $email)) {
-   setcookie('register-email-flags1', 'WhyAreYouHere?', 0, '/');
+   setcookie('register-email-flags1', 'WhyAreYouHere', 0, '/');
    $flag = true;
 } // Email is already taken
 if (str_contains($contents, $emailEntry)) {
-   setcookie('register-email-flags2', 'WhyAreYouHere?', 0, '/');
+   setcookie('register-email-flags2', 'WhyAreYouHere', 0, '/');
    $flag = true;
 } // Password doesn't respect conditions
 if (preg_match('/[^a-zA-Z0-9!@#$%^&*]/', $password)) {
-   setcookie('register-password-flags1', 'WhyAreYouHere?', 0, '/');
+   setcookie('register-password-flags1', 'WhyAreYouHere', 0, '/');
    $flag = true;
 }
 
