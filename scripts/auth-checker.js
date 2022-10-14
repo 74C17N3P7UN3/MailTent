@@ -16,24 +16,15 @@ let pswVeryStrong = '<i class="fa-solid fa-medal"></i> Amazing!'
 /* --------------- PHP Flag Detection With Cookies --------------- */
 let cookieList, cookieArr; getCookies()
 
-if (cookieList.includes('login-email-flags1'))
-   document.getElementById('login-email-flags').innerHTML = charInvalid
-if (cookieList.includes('login-email-flags2'))
+if (cookieList.includes('login-email-flags'))
    document.getElementById('login-email-flags').innerHTML = email404
-if (cookieList.includes('login-password-flags1'))
-   document.getElementById('login-password-flags').innerHTML = charInvalid
-if (cookieList.includes('login-password-flags2'))
+if (cookieList.includes('login-password-flags'))
    document.getElementById('login-password-flags').innerHTML = pswWrong
 
-if (cookieList.includes('register')) authRegister() // auth-changer.js
-if (cookieList.includes('register-username-flags1'))
-   document.getElementById('register-username-flags').innerHTML = charInvalid
-if (cookieList.includes('register-email-flags1'))
-   document.getElementById('register-email-flags').innerHTML = charInvalid
-if (cookieList.includes('register-email-flags2'))
+if (cookieList.includes('register-email-flags')) {
+   authRegister() // auth-changer.js
    document.getElementById('register-email-flags').innerHTML = emailTaken
-if (cookieList.includes('register-password-flags1'))
-   document.getElementById('register-password-flags').innerHTML = charInvalid
+}
 
 deleteCookies()
 getCookies() // Clear in case of a console.log
