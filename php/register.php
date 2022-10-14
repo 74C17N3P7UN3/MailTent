@@ -27,7 +27,7 @@ $flag = false;
 // Email is already taken
 if (str_contains($contents, $emailEntry)) {
    setcookie('register-email-flags', 'WhyAreYouHere', 0, '/');
-   header('location: /index.html');
+   header('location: /login.html');
    exit;
 }
 
@@ -36,5 +36,5 @@ $pointerFile = fopen($fileName, 'a');
 fwrite($pointerFile, $dbEntry . "\n");
 fclose($pointerFile);
 
-header('location: /inbox.html');
+header('location: /inbox.php');
 exit;

@@ -70,6 +70,12 @@ div.psw-container span.toggle-password {
 }
 div.psw-container span.toggled { color: var(--theme) }
 
+/* --------------- Remember Me Button --------------- */
+div.remember-container input {
+   width: auto;
+   margin-top: 0;
+}
+
 /* --------------- Customize Theme Button --------------- */
 div.auth-form span.customize-theme {
    cursor: pointer;

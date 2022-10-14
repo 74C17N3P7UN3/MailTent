@@ -21,9 +21,12 @@ $pointerFile = fopen($fileName, 'r');
 $contents = fread($pointerFile, filesize($fileName));
 fclose($pointerFile);
 
-// If login is valid, redirect to inbox
+// If login is valid, check remember and redirect to inbox
 if (str_contains($contents, $dbEntry)) {
-   header('location: /inbox.html');
+   if (isset($_POST['login-remember']))
+      setcookie('logged', $email, 0, '/', '', false, true);
+   
+   header('location: /inbox.php');
    exit;
 } // If email is valid, but psw is not
 else if (str_contains($contents, $emailEntry))
@@ -31,5 +34,5 @@ else if (str_contains($contents, $emailEntry))
 else // If email does not exist
    setcookie('login-email-flags', 'WhyAreYouHere', 0, '/');
 
-header('location: /index.html');
+header('location: /login.html');
 exit;
