@@ -26,9 +26,9 @@ div#watermark h4 { font-size: 2em }
 div.auth-form {
    width: 25vw;
    display: grid;
-   padding: 1rem;
+   padding: 20px;
    background: var(--gloss-bg);
-   border-radius: .8rem;
+   border-radius: 10px;
    border: 3px solid var(--white);
 }
 div.auth-form.hidden { display: none }
@@ -38,7 +38,7 @@ div.auth-form input {
    padding: 3px 8px;
    border: 2px solid #000;
    border-radius: 3px;
-   margin-block: .3rem .6rem;
+   margin-block: 5px 10px;
    transition: .2s;
 }
 div.auth-form input:focus { border: 2px solid var(--theme) }
