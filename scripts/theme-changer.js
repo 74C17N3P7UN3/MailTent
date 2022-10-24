@@ -21,7 +21,6 @@ if (localStorage.getItem('theme') == null) localStorage.setItem('theme', 'belize
 document.body.classList.add(localStorage.getItem('theme'))
 document.getElementById('loading-wait').outerHTML = ''
 
-
 // Generate Colors Table
 let colorsHtml = ''
 let colorSelection = document.getElementById('color-selection')
