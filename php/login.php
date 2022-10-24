@@ -25,7 +25,9 @@ fclose($pointerFile);
 if (str_contains($contents, $dbEntry)) {
    if (isset($_POST['login-remember']))
       setcookie('logged', $email, 0, '/', '', false, true);
-   
+   else
+      setcookie('logged', $email, time() + 10, '/', '', false, true);
+
    header('location: /inbox.php');
    exit;
 } // If email is valid, but psw is not

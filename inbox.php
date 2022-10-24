@@ -1,3 +1,9 @@
+<?php
+if (!isset($_COOKIE['logged'])) {
+   header('location: /index.php');
+   exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
@@ -9,12 +15,14 @@
    <!-- --------------- Stylesheet e Font --------------- -->
    <link rel="stylesheet" href="/css/common.css">
    <link rel="stylesheet" href="/css/FontKit/style.css">
+   <!-- --------------- Scripts --------------- -->
+   <script defer src="/scripts/theme-changer.js"></script>
 </head>
 <body>
    <!-- --------------- Navigation Bar --------------- -->
-   
+
    <!-- --------------- Inbox --------------- -->
-   
+
    <!-- --------------- Color Selection --------------- -->
    <div id="color-container" class="hidden">
       <div id="color-wrapper">
@@ -26,7 +34,5 @@
    </div>
    <!-- --------------- Loading Overlay --------------- -->
    <div id="loading-wait"></div>
-   <!-- --------------- Scripts --------------- -->
-   <script src="/scripts/theme-changer.js"></script>
 </body>
 </html>
