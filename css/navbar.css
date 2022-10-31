@@ -1,0 +1,71 @@
+/* --------------- Header Container --------------- */
+nav {
+   display: flex;
+   position: fixed;
+   width: 100%;
+   padding: 0 4rem;
+   justify-content: space-between;
+   background: var(--gloss-bg);
+   backdrop-filter: blur(3px);
+   z-index: 1;
+}
+
+/* --------------- Header Section --------------- */
+nav .nav-section {
+   display: flex;
+   padding: 1rem;
+   gap: 1rem;
+   align-items: center;
+   justify-content: center;
+}
+
+/* --------------- Logo --------------- */
+#nav-logo a {
+   font-size: 2em;
+   font-family: 'Cubano';
+   font-weight: 700;
+   color: var(--theme);
+   text-decoration: none;
+}
+
+/* --------------- Profile --------------- */
+#nav-profile a {
+   font-size: 1em;
+   color: var(--theme);
+   padding: .5rem 1rem;
+   border: 3px solid var(--theme);
+   border-radius: 2rem;
+   text-decoration: none;
+   transition: all .3s;
+}
+#nav-profile a:hover {
+   background: var(--theme);
+   color: var(--white);
+   cursor: pointer;
+}
+
+#profile-menu { position: relative }
+
+#profile-menu-content {
+   position: absolute;
+   display: none;
+   right: 0;
+   padding: 1rem;
+   margin-top: calc(0.5rem + 3px + 1rem + 1rem);
+   border: 3px solid var(--theme);
+   border-radius: 1rem;
+   background-color: var(--gloss-bg);
+   backdrop-filter: blur(3px);
+   z-index: 1;
+}
+#profile-menu.show #profile-menu-content { display: block }
+
+#profile-menu-content a {
+   display: block;
+   width: 10rem;
+   margin-top: .5rem;
+}
+#profile-menu-content a:nth-child(1) { margin-top: 0 }
+
+
+.menu-option i { padding-right: 2px }

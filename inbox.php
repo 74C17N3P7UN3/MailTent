@@ -9,17 +9,39 @@
    <script src="https://kit.fontawesome.com/6fb1d65783.js" crossorigin="anonymous"></script>
    <!-- --------------- Stylesheet e Font --------------- -->
    <link rel="stylesheet" href="/css/common.css">
+   <link rel="stylesheet" href="/css/inbox.css">
+   <link rel="stylesheet" href="/css/navbar.css">
    <link rel="stylesheet" href="/css/FontKit/style.css">
    <!-- --------------- Scripts --------------- -->
+   <script defer src="/scripts/dropdown-menu.js"></script>
    <script defer src="/scripts/theme-changer.js"></script>
 </head>
 <body>
    <!-- --------------- Navigation Bar --------------- -->
-
+   <nav>
+      <div id="nav-logo" class="nav-section">
+         <a href="/"><i class="fa-solid fa-tent"></i> MailTent</a>
+      </div>
+      <div id="nav-profile" class="nav-section">
+         <a id="theme-btn" class="customize-theme">
+            <i class="fa-solid fa-palette"></i>
+         </a>
+         <div id="profile-menu">
+            <a id="profile-btn"><i class="fa-solid fa-user"></i></a>
+            <div id="profile-menu-content">
+               <a href="/php/settings.php" class="menu-option">
+                  <i class="fa-solid fa-gears"></i> Settings
+               </a>
+               <a href="/php/logout.php" class="menu-option">
+                  <i class="fa-solid fa-right-from-bracket"></i> Logout
+               </a>
+            </div>
+         </div>
+      </div>
+   </nav>
    <!-- --------------- Inbox --------------- -->
 
    <!-- --------------- Color Selection --------------- -->
-   <div id="color-container" class="hidden">
    <div id="color-container">
       <div id="color-wrapper">
          <span id="color-name">Choose Your Theme:</span>
