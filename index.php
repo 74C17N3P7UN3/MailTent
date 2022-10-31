@@ -48,7 +48,7 @@ if (isset($_COOKIE['logged'])) {
                   <span id="login-email-flags" class="flag"></span>
                </div>
                <div class="email-container">
-                  <input type="text" name="login-email" id="login-email" required autofocus>
+                  <input type="text" name="login-email" id="login-email" pattern="[a-z0-9.]+" required autofocus>
                   <span class="email-suffix">@mailtent.com</span>
                </div>
                <div class="label-container">
@@ -56,7 +56,7 @@ if (isset($_COOKIE['logged'])) {
                   <span id="login-password-flags" class="flag"></span>
                </div>
                <div class="psw-container">
-                  <input type="password" name="login-psw" id="login-psw" required>
+                  <input type="password" name="login-psw" id="login-psw" pattern="[a-zA-Z0-9!@#$%^&*]+" required>
                   <span class="toggle-password"><i class="fa-solid fa-eye"></i></span>
                </div>
                <input type="submit" id="login-submit" value="Sign In">
@@ -68,13 +68,13 @@ if (isset($_COOKIE['logged'])) {
                   <label for="reg-username">Username</label>
                   <span id="register-username-flags" class="flag"></span>
                </div>
-               <input type="text" name="reg-username" id="reg-username" required>
+               <input type="text" name="reg-username" id="reg-username" pattern="[a-zA-Z0-9!@#*]+" required>
                <div class="label-container">
                   <label for="reg-email">Email</label>
                   <span id="register-email-flags" class="flag"></span>
                </div>
                <div class="email-container">
-                  <input type="text" name="reg-email" id="reg-email" required>
+                  <input type="text" name="reg-email" id="reg-email" pattern="[a-z0-9.]+" required>
                   <span class="email-suffix">@mailtent.com</span>
                </div>
                <div class="label-container">
@@ -82,7 +82,7 @@ if (isset($_COOKIE['logged'])) {
                   <span id="register-password-flags" class="flag"></span>
                </div>
                <div class="psw-container">
-                  <input type="password" name="reg-psw" id="reg-psw" required>
+                  <input type="password" name="reg-psw" id="reg-psw" pattern="[a-zA-Z0-9!@#$%^&*]+" required>
                   <span class="toggle-password"><i class="fa-solid fa-eye"></i></span>
                </div>
                <span class="customize-theme">
