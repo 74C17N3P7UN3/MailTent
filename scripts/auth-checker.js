@@ -27,7 +27,6 @@ if (cookieList.includes('register-email-flags')) {
 }
 
 deleteCookies()
-getCookies() // Clear in case of a console.log
 
 function getCookies() {
 
@@ -38,8 +37,12 @@ function getCookies() {
 
 function deleteCookies() {
 
+   getCookies(); // Get cookies array
+
    for (let i = 0; i < cookieArr.length; i++)
       document.cookie = cookieArr[i] + '=;expires=' + new Date(0).toUTCString()
+
+   getCookies(); // In case of a console.log
 
 }
 
@@ -57,9 +60,11 @@ let logSubmit = document.getElementById('login-submit')
 
 logEmailInput.addEventListener('keyup', () => {
    checkValid(logEmailInput, logEmailFlags, emailChars, false)
+   setLogSubmit()
 })
 logPswInput.addEventListener('keyup', () => {
    checkValid(logPswInput, logPswFlags, pswChars, false)
+   setLogSubmit()
 })
 
 /* --------------- Check Registration Section --------------- */
@@ -73,9 +78,11 @@ let regSubmit = document.getElementById('reg-submit')
 
 regUserInput.addEventListener('keyup', () => {
    checkValid(regUserInput, regUsernameFlags, usernameChars, true)
+   setRegSubmit()
 })
 regEmailInput.addEventListener('keyup', () => {
    checkValid(regEmailInput, regEmailFlags, emailChars, false)
+   setRegSubmit()
 })
 regPswInput.addEventListener('keyup', () => {
 
@@ -112,7 +119,7 @@ regPswInput.addEventListener('keyup', () => {
    if (regPswInput.value == '')
       regPswFlags.innerHTML = ''
 
-   setSubmit()
+   setRegSubmit()
 
 })
 
@@ -135,11 +142,9 @@ function checkValid(input, flags, charset, checkLen) {
    if (input.value == '')
       flags.innerHTML = ''
 
-   setSubmit()
-
 }
 
-function setSubmit() {
+function setLogSubmit() {
 
    if ((logEmailInput.value.match(emailChars))
       || logPswInput.value.match(pswChars)) {
@@ -151,7 +156,12 @@ function setSubmit() {
       logSubmit.removeAttribute('disabled')
    }
 
+}
+
+function setRegSubmit() {
+
    if ((regUserInput.value.match(usernameChars))
+      || regUserInput.value.length > 16
       || regEmailInput.value.match(emailChars)
       || regPswInput.value.match(pswChars)) {
       document.cookie += 'reg-submit-flag=WhyAreYouHere;'
