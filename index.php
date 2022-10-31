@@ -59,10 +59,6 @@ if (isset($_COOKIE['logged'])) {
                   <input type="password" name="login-psw" id="login-psw" required>
                   <span class="toggle-password"><i class="fa-solid fa-eye"></i></span>
                </div>
-               <div class="remember-container">
-                  <input type="checkbox" name="login-remember" id="login-remember">
-                  <label for="login-remember">Remember me</label>
-               </div>
                <input type="submit" id="login-submit" value="Sign In">
             </form>
          </div>
