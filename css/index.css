@@ -1,7 +1,6 @@
 /* --------------- Body --------------- */
 body {
    overflow: hidden;
-   /* Background */
    background-image: var(--theme-bg);
    background-size: 100%;
    background-position: bottom;
