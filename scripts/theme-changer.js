@@ -40,7 +40,7 @@ colorBtn.forEach(e => e.addEventListener('click', clickThemeBtn))
 let themeContainer = document.getElementById('color-container')
 let openThemeBtn = document.querySelectorAll('.customize-theme')
 openThemeBtn.forEach(e => e.addEventListener('click', openThemeMenu))
-function openThemeMenu() { themeContainer.classList.remove('hidden') }
+function openThemeMenu() { themeContainer.classList.add('show') }
 
 function hoverThemeBtn(e) {
 
@@ -54,7 +54,7 @@ function clickThemeBtn() {
    document.body.removeAttribute('class')
    document.body.classList.add(activeTheme + '-theme')
    localStorage.setItem('theme', activeTheme + '-theme')
-   themeContainer.classList.add('hidden')
+   themeContainer.removeAttribute('class')
    colorNameDisplay.innerHTML = 'Choose Your Theme:'
 
 }

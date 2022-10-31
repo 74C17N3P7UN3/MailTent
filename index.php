@@ -92,7 +92,7 @@
       </div>
    </div>
    <!-- --------------- Color Selection --------------- -->
-   <div id="color-container" class="hidden">
+   <div id="color-container">
       <div id="color-wrapper">
          <span id="color-name">Choose Your Theme:</span>
          <div id="color-selection">

@@ -109,15 +109,15 @@ div#loading-wait {
 /* --------------- Theme Selection Popup --------------- */
 div#color-container {
    position: fixed;
+   display: none;
    height: 100%;
    width: 100%;
-   display: flex;
    align-items: center;
    justify-content: center;
    background: var(--gloss-bg);
    backdrop-filter: blur(10px);
 }
-div#color-container.hidden { display: none }
+div#color-container.show { display: flex }
 
 div#color-wrapper {
    padding: 20px;
