@@ -1,9 +1,4 @@
-<?php
-if (isset($_COOKIE['logged'])) {
-   header('location: /inbox.php');
-   exit;
-}
-?>
+<?php include 'php/session.php'; handle_index() ?>
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
