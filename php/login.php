@@ -25,8 +25,14 @@ if (isset($_POST['login-email'])) {
    $contents = fread($pointerFile, filesize($fileName));
    fclose($pointerFile);
 
-   // If login is valid, check remember and redirect to inbox
+   // If login is valid, redirect to inbox
    if (str_contains($contents, $dbEntry)) {
+      setcookie(
+         'session-id',
+         session_id(),
+         time() + 60 * 60 * 24 * 365,
+         '/', '', false, true
+      );
       $_SESSION['email'] = $email;
       header('location: /inbox.php');
       exit;
