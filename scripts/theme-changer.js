@@ -19,7 +19,6 @@ const colors = [
 // Load Theme On Page Load
 if (localStorage.getItem('theme') == null) localStorage.setItem('theme', 'belizehole-theme')
 document.body.classList.add(localStorage.getItem('theme'))
-document.getElementById('loading-wait').outerHTML = ''
 
 // Generate Colors Table
 let colorsHtml = ''

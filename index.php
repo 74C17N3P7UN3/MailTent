@@ -6,6 +6,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- --------------- Icons Script --------------- -->
+   <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
    <script src="https://kit.fontawesome.com/6fb1d65783.js" crossorigin="anonymous"></script>
    <!-- --------------- Stylesheet e Font --------------- -->
    <link rel="stylesheet" href="/css/common.css">
@@ -15,6 +16,7 @@
    <!-- --------------- Scripts --------------- -->
    <script defer src="/scripts/auth-changer.js"></script>
    <script defer src="/scripts/auth-checker.js"></script>
+   <script defer src="/scripts/loading-screen.js"></script>
    <script defer src="/scripts/password-toggler.js"></script>
    <script defer src="/scripts/theme-changer.js"></script>
 </head>
@@ -101,6 +103,13 @@
       </div>
    </div>
    <!-- --------------- Loading Overlay --------------- -->
-   <div id="loading-wait"></div>
+   <div id="loading-wait">
+      <lord-icon class="show"
+         src="https://cdn.lordicon.com/ochimkct.json"
+         trigger="loop"
+         colors="primary:#121331,secondary:#ECF0F1"
+         style="width:350px;height:350px">
+      </lord-icon>
+   </div>
 </body>
 </html>
