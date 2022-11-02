@@ -4,3 +4,23 @@ body {
    background-size: 100%;
    background-position: bottom;
 }
+
+/* --------------- Side Bar --------------- */
+aside {
+   position: absolute;
+   height: calc(100vh - var(--margin-nav) - 1rem * 2);
+   width: 17rem;
+   margin-top: calc(var(--margin-nav) + 1rem);
+   background: var(--gloss-bg);
+   border-radius: 0 1rem 1rem 0;
+}
+
+/* --------------- Inbox --------------- */
+div#body-container {
+   height: calc(100vh - var(--margin-nav) - 1rem * 2);
+   width: calc(100vw - 17rem - 1rem - 1rem);
+   margin-top: calc(var(--margin-nav) + 1rem);
+   margin-left: calc(17rem + 1rem);
+   background: var(--gloss-bg);
+   border-radius: 1rem;
+}

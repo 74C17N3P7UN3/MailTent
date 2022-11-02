@@ -18,7 +18,7 @@
 </head>
 <body>
    <!-- --------------- Navigation Bar --------------- -->
-   <nav>
+   <nav id="navbar">
       <div id="nav-logo" class="nav-section">
          <a href="/"><i class="fa-solid fa-tent"></i> MailTent</a>
       </div>
@@ -39,8 +39,14 @@
          </div>
       </div>
    </nav>
+   <!-- --------------- Side Bar --------------- -->
+   <aside id="sidebar">
+      <!--  -->
+   </aside>
    <!-- --------------- Inbox --------------- -->
-
+   <div id="body-container">
+      <!--  -->
+   </div>
    <!-- --------------- Color Selection --------------- -->
    <div id="color-container">
       <div id="color-wrapper">
