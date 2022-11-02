@@ -139,8 +139,11 @@ div#loading-wait {
    height: 100vh;
    width: 100vw;
    background: var(--theme);
+   opacity: 0;
+   transition: ease-out .5s;
    z-index: 100;
 }
+div#loading-wait.show { opacity: 1 }
 
 lord-icon {
    position: absolute;
@@ -148,6 +151,7 @@ lord-icon {
    left: 50%;
    transform: translate(-50%, -50%)  scale(120%);
    opacity: 0;
+   transition: ease-out .5s;
 }
 
 lord-icon.show {

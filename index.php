@@ -103,7 +103,7 @@
       </div>
    </div>
    <!-- --------------- Loading Overlay --------------- -->
-   <div id="loading-wait">
+   <div id="loading-wait" class="show">
       <lord-icon class="show"
          src="https://cdn.lordicon.com/ochimkct.json"
          trigger="loop"
