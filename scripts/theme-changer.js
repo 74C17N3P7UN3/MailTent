@@ -16,11 +16,11 @@ const colors = [
    'silver'
 ]
 
-// Load Theme On Page Load
+/* --------------- Load Theme On Page Load --------------- */
 if (localStorage.getItem('theme') == null) localStorage.setItem('theme', 'belizehole-theme')
 document.body.classList.add(localStorage.getItem('theme'))
 
-// Generate Colors Table
+/* --------------- Generate Colors Table --------------- */
 let colorsHtml = ''
 let colorSelection = document.getElementById('color-selection')
 colors.forEach(e => {
@@ -28,18 +28,29 @@ colors.forEach(e => {
 })
 colorSelection.innerHTML = colorsHtml
 
-// Handle The Menu Interactions
+/* --------------- Handle The Menu Interactions --------------- */
 let activeTheme = ''
 let colorBtn = document.querySelectorAll('div#color-selection i.fa-square')
 let colorNameDisplay = document.getElementById('color-name')
 colorBtn.forEach(e => e.addEventListener('mouseenter', () => { hoverThemeBtn(e) }))
 colorBtn.forEach(e => e.addEventListener('click', clickThemeBtn))
 
-// Open Menu On Button Click
+/* --------------- Open Menu On Button Click --------------- */
 let themeContainer = document.getElementById('color-container')
 let openThemeBtn = document.querySelectorAll('.customize-theme')
 openThemeBtn.forEach(e => e.addEventListener('click', openThemeMenu))
-function openThemeMenu() { themeContainer.classList.add('show') }
+
+/* --------------- Event Functions --------------- */
+function openThemeMenu() {
+
+   if (!themeContainer.classList.contains('show'))
+      themeContainer.classList.add('show')
+   else {
+      themeContainer.removeAttribute('class')
+      colorNameDisplay.innerHTML = 'Choose Your Theme:'
+   }
+
+}
 
 function hoverThemeBtn(e) {
 
