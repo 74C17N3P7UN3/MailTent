@@ -40,6 +40,8 @@
    --theme-bg: var(--belizehole-bg);
    --gloss-bg: #FFF9;
    --white: #ECF0F1;
+   /* Fixed Spacings */
+   --margin-nav: calc(1rem + 3px + .5rem + 1em + .5rem + 3px + 1rem + 3px);
 }
 
 /* --------------- Custom Themes --------------- */
@@ -80,7 +82,8 @@ body.silver-theme { --theme: var(--silver); --theme-bg: var(--silver-bg) }
 
 body {
    display: grid;
-   min-height: 100vh;
+   overflow: hidden;
+   height: 100vh;
    font-family: 'Rubik', sans-serif;
 }
 
