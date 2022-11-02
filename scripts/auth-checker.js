@@ -26,6 +26,13 @@ if (cookieList.includes('register-email-flags')) {
    document.getElementById('register-email-flags').innerHTML = emailTaken
 }
 
+/* --------------- Also reduce loading time for UX --------------- */
+if (cookieList.includes('login-email-flags')
+   || cookieList.includes('login-password-flags')
+   || cookieList.includes('register-email-flags')) {
+   lowerLoadingTimeout = true
+}
+
 deleteCookies()
 
 function getCookies() {
@@ -39,10 +46,14 @@ function deleteCookies() {
 
    getCookies(); // Get cookies array
 
-   for (let i = 0; i < cookieArr.length; i++)
-      document.cookie = cookieArr[i] + '=;expires=' + new Date(0).toUTCString()
+   setTimeout(() => {
 
-   getCookies(); // In case of a console.log
+      for (let i = 0; i < cookieArr.length; i++)
+         document.cookie = cookieArr[i] + '=;expires=' + new Date(0).toUTCString()
+
+      getCookies(); // In case of a console.log
+
+   }, 10);
 
 }
 

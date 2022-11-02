@@ -9,4 +9,13 @@ setTimeout(() => {
    setTimeout(() => {
       loadingScreen.outerHTML = ''
    }, 500)
-}, 2000)
+}, calcTimeout())
+
+function calcTimeout() {
+
+   try { if (lowerLoadingTimeout) return 500 }
+   catch (ReferenceError) { }
+
+   return 2000
+
+}
