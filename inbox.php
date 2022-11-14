@@ -43,11 +43,54 @@
    </nav>
    <!-- --------------- Side Bar --------------- -->
    <aside id="sidebar">
-      <!--  -->
+      <div id="compose">
+         <div class="sidebar-icon">
+            <i class="fa-solid fa-pen-clip"></i>
+         </div>
+         <span>Compose</span>
+      </div>
+      <ul id="sidebar-content">
+         <li id="inbox" class="sidebar-option selected">
+            <div class="sidebar-icon">
+               <i class="fa-solid fa-inbox"></i>
+            </div>
+            <span>Inbox</span>
+         </li>
+         <li id="starred" class="sidebar-option">
+            <div class="sidebar-icon">
+               <i class="fa-solid fa-star"></i>
+            </div>
+            <span>Starred</span>
+         </li>
+         <li id="drafts" class="sidebar-option">
+            <div class="sidebar-icon">
+               <i class="fa-solid fa-file"></i>
+            </div>
+            <span>Drafts</span>
+         </li>
+         <li id="sent" class="sidebar-option">
+            <div class="sidebar-icon">
+               <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <span>Sent</span>
+         </li>
+      </ul>
    </aside>
    <!-- --------------- Inbox --------------- -->
    <div id="body-container">
-      <!--  -->
+      <div id="body-header">
+         <!--  -->
+      </div>
+      <div class="email unread">
+         <div class="email-star"></div>
+         <div class="email-recipients"></div>
+         <div class="email-object bold"></div>
+         <div class="email-text"></div>
+         <div class="email-date"></div>
+      </div>
+      <div id="body-footer">
+         <!--  -->
+      </div>
    </div>
    <!-- --------------- Color Selection --------------- -->
    <div id="color-container">
@@ -59,13 +102,13 @@
       </div>
    </div>
    <!-- --------------- Loading Overlay --------------- -->
-   <div id="loading-wait" class="show">
+   <!-- <div id="loading-wait" class="show">
       <lord-icon class="show"
          src="https://cdn.lordicon.com/ochimkct.json"
          trigger="loop"
          colors="primary:#121331,secondary:#ECF0F1"
          style="width:350px;height:350px">
-      </lord-icon>
+      </lord-icon> -->
    </div>
 </body>
 </html>

@@ -9,18 +9,57 @@ body {
 aside {
    position: absolute;
    height: calc(100vh - var(--margin-nav) - 1rem * 2);
-   width: 17rem;
+   width: var(--sidebar-width);
    margin-top: calc(var(--margin-nav) + 1rem);
+}
+
+div#compose {
+   display: flex;
+   width: fit-content;
+   margin: 0 0 1rem .5rem;
+   padding: 1rem 1.5rem;
+   background: var(--white);
+   border-radius: 1rem;
+   color: var(--theme);
+   transition: .2s;
+}
+div#compose:hover {
    background: var(--gloss-bg);
+   box-shadow: 2px -2px var(--theme),
+               2px 2px var(--theme),
+               -2px 2px var(--theme),
+               -2px -2px var(--theme);
+   cursor: pointer;
+}
+
+ul#sidebar-content { list-style: none }
+li.sidebar-option {
+   display: flex;
+   padding-left: 2rem;
+   padding-block: .3rem;
    border-radius: 0 1rem 1rem 0;
+   transition: .2s;
+}
+
+li.selected,
+li:hover {
+   background: var(--gloss-bg);
+   cursor: pointer;
+}
+li.selected { font-weight: bold }
+
+div.sidebar-icon {
+   width: 1rem;
+   text-align: center;
+   margin-right: .5rem;
 }
 
 /* --------------- Inbox --------------- */
 div#body-container {
    height: calc(100vh - var(--margin-nav) - 1rem * 2);
-   width: calc(100vw - 17rem - 1rem - 1rem);
+   width: calc(100vw - var(--sidebar-width) - 1rem - 1rem);
    margin-top: calc(var(--margin-nav) + 1rem);
-   margin-left: calc(17rem + 1rem);
+   margin-left: calc(var(--sidebar-width) + 1rem);
    background: var(--gloss-bg);
    border-radius: 1rem;
 }

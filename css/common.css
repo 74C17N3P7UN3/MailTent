@@ -38,10 +38,11 @@
    /* Main Colors */
    --theme: var(--belizehole);
    --theme-bg: var(--belizehole-bg);
-   --gloss-bg: #FFF9;
+   --gloss-bg: #ECF0F199;
    --white: #ECF0F1;
    /* Fixed Spacings */
    --margin-nav: calc(1rem + 3px + .5rem + 1em + .5rem + 3px + 1rem + 3px);
+   --sidebar-width: 15rem;
 }
 
 /* --------------- Custom Themes --------------- */
