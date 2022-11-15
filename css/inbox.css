@@ -63,3 +63,65 @@ div#body-container {
    background: var(--gloss-bg);
    border-radius: 1rem;
 }
+
+div#body-header {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 2px;
+   padding: .5rem 1rem;
+   box-shadow: 0 2px var(--theme);
+   border-radius: 1rem 1rem 0 0;
+}
+
+div.body-header-section { display: flex }
+div.body-header-section div { padding: .5rem .6rem }
+
+div#header-refresh,
+div#header-read-all {
+   border-radius: 2rem;
+   transition: .2s;
+}
+div#header-refresh:hover,
+div#header-read-all:hover {
+   background: var(--gloss-bg);
+   cursor: pointer;
+}
+
+div.email {
+   display: flex;
+   padding: .5rem 1.5rem;
+   transition: .2s;
+}
+div.email:hover {
+   box-shadow: 0 2px var(--theme);
+   cursor: pointer;
+}
+
+div.email.unread { font-weight: bold }
+span.email-text { font-weight: normal }
+
+div.email-star {
+   margin-right: 1rem;
+   border-radius: 1rem;
+   color: var(--asbestos);
+   transition: .2s;
+}
+div.email-star:hover i { color: #000 }
+div.email-star i.fa-solid { color: var(--theme) }
+
+div.email-recipients,
+div.email-content,
+div.email-date {
+   height: 1.25em;
+   overflow: hidden;
+}
+
+div.email-recipients {
+   width: 13.5rem;
+   padding-right: 1.5rem;
+}
+div.email-content { width: calc(100% - 2rem - 13.5rem - 5rem) }
+div.email-date {
+   width: 5rem;
+   text-align: right;
+}
