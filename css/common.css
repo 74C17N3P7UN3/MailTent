@@ -62,16 +62,6 @@ body.wetasphalt-theme { --theme: var(--wetasphalt); --theme-bg: var(--wetasphalt
 body.asbestos-theme { --theme: var(--asbestos); --theme-bg: var(--asbestos-bg) }
 body.silver-theme { --theme: var(--silver); --theme-bg: var(--silver-bg) }
 
-/* --------------- Custom Scrollbar --------------- */
-::-webkit-scrollbar {
-   height: 0;
-   width: 0;
-}
-::-webkit-scrollbar-corner {
-   height: 0;
-   width: 0;
-}
-
 /* --------------- Body --------------- */
 * {
    margin: 0;
@@ -99,6 +89,14 @@ img {
    -khtml-user-drag: none;
    -moz-user-drag: none;
    -o-user-drag: none;
+}
+
+/* --------------- No Next Highlight --------------- */
+.no-select {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
 
 /* --------------- Theme Selection Popup --------------- */

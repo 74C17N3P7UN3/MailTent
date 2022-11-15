@@ -16,6 +16,6 @@ function calcTimeout() {
    try { if (lowerLoadingTimeout) return 500 }
    catch (ReferenceError) { }
 
-   return 2000
+   return 1000
 
 }
