@@ -30,7 +30,7 @@ if (cookieList.includes('register-email-flags')) {
 if (cookieList.includes('login-email-flags')
    || cookieList.includes('login-password-flags')
    || cookieList.includes('register-email-flags')) {
-   lowerLoadingTimeout = true
+   var lowerLoadingTimeout = true
 }
 
 deleteCookies()

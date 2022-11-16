@@ -54,8 +54,7 @@ nav .nav-section {
    margin-top: calc(.5rem + 3px + 1rem + 1rem);
    border: 3px solid var(--theme);
    border-radius: 1rem;
-   background-color: var(--gloss-bg);
-   backdrop-filter: blur(3px);
+   background-color: var(--white);
    z-index: 1;
 }
 #profile-menu.show #profile-menu-content { display: block }
