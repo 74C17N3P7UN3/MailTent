@@ -38,7 +38,7 @@
          <h4>Made Simpler</h4>
       </div>
       <div id="auth-form-container">
-         <div id="login" class="auth-form">
+         <div id="login" class="auth-form show">
             <form action="php/login.php" method="post">
                <div class="label-container">
                   <label for="login-email">Email</label>
@@ -59,7 +59,7 @@
                <input type="submit" id="login-submit" value="Sign In">
             </form>
          </div>
-         <div id="register" class="auth-form hidden">
+         <div id="register" class="auth-form">
             <form action="php/register.php" method="post">
                <div class="label-container">
                   <label for="reg-username">Username</label>

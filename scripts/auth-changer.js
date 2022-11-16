@@ -11,16 +11,16 @@ let register = document.getElementById('register')
 
 function authLogin() {
 
-   register.classList.add('hidden')
-   login.classList.remove('hidden')
+   login.classList.add('show')
+   register.classList.remove('show')
    switchP.innerHTML = 'New to MailTent? <a>Sign Up</a>.'
    fetchSwitchBtn()
 
 }
 function authRegister() {
 
-   login.classList.add('hidden')
-   register.classList.remove('hidden')
+   register.classList.add('show')
+   login.classList.remove('show')
    switchP.innerHTML = 'Already a user? <a>Sign In</a>.'
    fetchSwitchBtn()
 

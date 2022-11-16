@@ -23,13 +23,13 @@ div#watermark h4 { font-size: 2em }
 /* --------------- Auth Forms --------------- */
 div.auth-form {
    width: 25vw;
-   display: grid;
+   display: none;
    padding: 20px;
    background: var(--gloss-bg);
    border-radius: 10px;
    border: 3px solid var(--white);
 }
-div.auth-form.hidden { display: none }
+div.auth-form.show { display: grid }
 
 div.auth-form input {
    width: 100%;
