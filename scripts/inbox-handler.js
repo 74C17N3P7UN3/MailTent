@@ -10,10 +10,17 @@ setRedirect(starredBtn, 'starred.php')
 setRedirect(draftsBtn, 'drafts.php')
 setRedirect(sentBtn, 'sent.php')
 
+updateInbox('inbox')
+
 refreshBtn.addEventListener('click', () => {
-   saveState()
    location.reload()
 })
+
+function updateInbox(page) {
+
+   console.log(userEmails)
+
+}
 
 function setRedirect(btn, page) {
 
@@ -22,11 +29,5 @@ function setRedirect(btn, page) {
          saveState()
          location.replace('/php/data/' + page)
       })
-
-}
-
-function saveState() {
-
-   //
 
 }

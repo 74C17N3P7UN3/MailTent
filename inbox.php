@@ -1,4 +1,5 @@
 <?php include 'php/session.php'; handle_inbox() ?>
+<?php include 'php/fetcher.php'; fetch_emails() ?>
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
@@ -14,10 +15,14 @@
    <link rel="stylesheet" href="/css/navbar.css">
    <link rel="stylesheet" href="/css/FontKit/style.css">
    <!-- --------------- Scripts --------------- -->
+   <script>
+      /* Get user's emails into js */
+      var userEmails = <?php echo $userEmails ?>
+   </script>
    <script defer src="/scripts/dropdown-menu.js"></script>
    <script defer src="/scripts/inbox-emails.js"></script>
+   <script defer src="/scripts/inbox-handler.js"></script>
    <script defer src="/scripts/loading-screen.js"></script>
-   <script defer src="/scripts/redirect-handler.js"></script>
    <script defer src="/scripts/theme-changer.js"></script>
 </head>
 <body>
