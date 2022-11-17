@@ -20,8 +20,8 @@
       var userEmails = <?php echo $userEmails ?>
    </script>
    <script defer src="/scripts/dropdown-menu.js"></script>
-   <script defer src="/scripts/inbox-emails.js"></script>
    <script defer src="/scripts/inbox-handler.js"></script>
+   <script defer src="/scripts/inbox-interaction.js"></script>
    <script defer src="/scripts/loading-screen.js"></script>
    <script defer src="/scripts/theme-changer.js"></script>
 </head>
@@ -85,30 +85,26 @@
    </aside>
    <!-- --------------- Inbox --------------- -->
    <div id="body-container">
-      <div id="body-header">
-         <div class="body-header-section">
-            <div id="header-refresh">
-               <i class="fa-solid fa-rotate-right"></i>
+      <div id="inbox-view" class="body-view">
+         <div id="body-header">
+            <div class="body-header-section">
+               <div id="header-refresh">
+                  <i class="fa-solid fa-rotate-right"></i>
+               </div>
+               <div id="header-read-all">
+                  <i class="fa-solid fa-envelope-open"></i>
+               </div>
             </div>
-            <div id="header-read-all">
-               <i class="fa-solid fa-envelope-open"></i>
+            <div class="body-header-section">
+               <div id="header-total-email"></div>
             </div>
          </div>
-         <div class="body-header-section">
-            <div id="header-total-email">Total emails: 25</div>
+         <div id="body-emails"></div>
+         <div id="body-footer">
+            <!--  -->
          </div>
       </div>
-      <div id="2022-11-15" class="email unread no-select">
-         <div class="email-star"><i class="fa-regular fa-star"></i></div>
-         <div class="email-recipients">You, Leonardo</div>
-         <div class="email-content">
-            <span class="email-object bold">Testing Mail</span>
-            <span class="email-text">-</span>
-            <span class="email-text">I hereby want to communicate that the email is indeed working, congratulations! I hereby want to communicate that the email is indeed working, congratulations!</span>
-         </div>
-         <div class="email-date">15 Nov</div>
-      </div>
-      <div id="body-footer">
+      <div id="compose-view" class="body-view">
          <!--  -->
       </div>
    </div>
