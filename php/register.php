@@ -39,6 +39,10 @@ if (isset($_POST['reg-username'])) {
    fwrite($pointerFile, $dbEntry . "\n");
    fclose($pointerFile);
 
+   /* --------------- Create User Template --------------- */
+   $fileName = '../database/users/' . $email . '.json';
+   copy('../database/init.json', $fileName);
+
    /* --------------- Redirect to inbox --------------- */
    $_SESSION['email'] = $email;
    header('location: /inbox.php');
