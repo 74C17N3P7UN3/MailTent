@@ -62,6 +62,14 @@ body.wetasphalt-theme { --theme: var(--wetasphalt); --theme-bg: var(--wetasphalt
 body.asbestos-theme { --theme: var(--asbestos); --theme-bg: var(--asbestos-bg) }
 body.silver-theme { --theme: var(--silver); --theme-bg: var(--silver-bg) }
 
+/* --------------- Custom Scrollbar --------------- */
+::-webkit-scrollbar { width: 8px }
+::-webkit-scrollbar-track { margin-block: 5px }
+::-webkit-scrollbar-thumb {
+   background: var(--theme);
+   border-radius: 8px;
+}
+
 /* --------------- Body --------------- */
 * {
    margin: 0;
