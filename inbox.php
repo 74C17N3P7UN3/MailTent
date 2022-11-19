@@ -19,9 +19,10 @@
       /* Get user's emails into js */
       var userEmails = <?php echo $userEmails ?>
    </script>
+   <script src="/scripts/inbox-syncronizer.js"></script>
    <script defer src="/scripts/dropdown-menu.js"></script>
+   <script defer src="/scripts/inbox-actions.js"></script>
    <script defer src="/scripts/inbox-handler.js"></script>
-   <script defer src="/scripts/inbox-interaction.js"></script>
    <script defer src="/scripts/loading-screen.js"></script>
    <script defer src="/scripts/theme-changer.js"></script>
 </head>

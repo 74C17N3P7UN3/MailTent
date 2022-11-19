@@ -1,10 +1,17 @@
-let starList = document.querySelectorAll('.email-star')
-starList.forEach(e => {
-   e.addEventListener('click', (e) => { starEmail(e) })
-})
-
 let readAllBtn = document.getElementById('header-read-all')
 readAllBtn.addEventListener('click', readAll)
+
+var emailList = document.querySelectorAll('.email')
+function getEmails() {
+
+   let starList = document.querySelectorAll('.email-star')
+   starList.forEach(e => {
+      e.addEventListener('click', (e) => { starEmail(e) })
+   })
+
+   emailList = document.querySelectorAll('.email')
+
+}
 
 function starEmail(e) {
 
@@ -26,10 +33,12 @@ function starEmail(e) {
 
 function readAll() {
 
+   emailList.forEach(email => {
+      email.classList.remove('unread')
+   })
+
    userEmails.emails.forEach(email => {
       email.read = true
    })
-
-   updateView('inbox')
 
 }
