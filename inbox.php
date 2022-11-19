@@ -1,5 +1,5 @@
 <?php include 'php/session.php'; handle_inbox() ?>
-<?php include 'php/fetcher.php'; fetch_emails() ?>
+<?php include 'php/fetcher.php'; fetch_emails($_SESSION['email']) ?>
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>

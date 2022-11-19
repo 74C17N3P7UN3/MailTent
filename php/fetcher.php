@@ -2,11 +2,11 @@
 
 $userEmails;
 
-function fetch_emails() {
+function fetch_emails($email) {
 
    global $userEmails;
 
-   $fileName = 'database/users/' . $_SESSION['email'] . '.json';
+   $fileName = 'database/users/' . $email . '.json';
 
    $pointerFile = fopen($fileName, 'r');
    $userEmails = fread($pointerFile, filesize($fileName));
