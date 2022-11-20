@@ -132,3 +132,25 @@ div.email-date {
    width: 5rem;
    text-align: right;
 }
+
+div#body-footer {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 2px;
+   padding: .5rem 1rem;
+   box-shadow: 0 -2px var(--theme);
+   border-radius: 0 0 1rem 1rem;
+}
+div#body-footer i { margin-right: 2px }
+
+span.links-separator { margin-inline: 5px }
+
+div#footer-links a {
+   text-decoration: none;
+   color: #000;
+   transition: .2s;
+}
+div#footer-links a:hover { color: var(--theme) }
+
+div#footer-credits i { font-size: 0.8em }

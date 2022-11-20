@@ -1,5 +1,6 @@
 let emailCount = document.getElementById('header-total-email')
 let inboxDiv = document.getElementById('body-emails')
+let diskSpace = document.getElementById('inbox-size')
 
 let inboxBtn = document.getElementById('inbox')
 let starredBtn = document.getElementById('starred')
@@ -12,32 +13,32 @@ setPage(draftsBtn, 'drafts')
 setPage(sentBtn, 'sent')
 
 let refreshBtn = document.getElementById('header-refresh')
-refreshBtn.addEventListener('click', () => {
-   location.reload()
-})
+refreshBtn.addEventListener('click', () => { location.reload() })
 
 updateView('inbox')
 
 function updateView(page) {
 
    if (page != 'compose') {
-      let emails = userEmails.emails
       let emailArr = []
 
-      emails.forEach(email => {
+      userEmails.emails.forEach(email => {
          if (email.location == page)
             emailArr.push(email)
+         // If on starred page, check starred value
          if (page == 'starred' && email.starred)
             emailArr.push(email)
       })
 
       emailCount.innerHTML = `Total emails: ${emailArr.length}`
       inboxDiv.innerHTML = arrToList(emailArr)
+
+      getEmails()
+      diskSpace.innerHTML = bytesConversion(userSpace)
    }
    else {
       //
    }
-
 
 }
 
@@ -53,7 +54,7 @@ function setPage(btn, page) {
 
 }
 
-/* --------------- Utils Functions--------------- */
+/* --------------- Utils Functions --------------- */
 function arrToList(arr) {
 
    let htmlList = ''
@@ -70,9 +71,9 @@ function arrToList(arr) {
       else htmlList += '<i class="fa-solid fa-star"></i>'
       htmlList += '</div>'
       // Recipients
-      htmlList += '\n\t<div class="email-recipients">You, '
+      htmlList += '\n\t<div class="email-recipients">You'
       email.recipients.forEach(recipient => {
-         htmlList += recipient + ' '
+         htmlList += ', ' + recipient
       })
       htmlList += '</div>'
       // Content
@@ -93,6 +94,17 @@ function arrToList(arr) {
    })
 
    return htmlList
+
+}
+
+function bytesConversion(bytes) {
+
+   if (bytes > 1024)
+      return `${(bytes / 1024).toFixed(1)} kB`
+   else if (bytes > 1024 * 1024)
+      return `${(bytes / 1024 / 1024).toFixed(1)} MB`
+   else
+      return `${(bytes).toFixed(1)} b`
 
 }
 

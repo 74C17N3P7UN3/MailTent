@@ -18,6 +18,7 @@
    <script>
       /* Get user's emails into js */
       var userEmails = <?php echo $userEmails ?>
+      var userSpace = <?php echo $userSpace ?>
    </script>
    <script src="/scripts/inbox-syncronizer.js"></script>
    <script defer src="/scripts/dropdown-menu.js"></script>
@@ -87,6 +88,7 @@
    <!-- --------------- Inbox --------------- -->
    <div id="body-container">
       <div id="inbox-view" class="body-view">
+         <!-- --------------- Header --------------- -->
          <div id="body-header">
             <div class="body-header-section">
                <div id="header-refresh">
@@ -100,9 +102,35 @@
                <div id="header-total-email"></div>
             </div>
          </div>
+         <!-- --------------- Body --------------- -->
          <div id="body-emails"></div>
+         <!-- --------------- Footer --------------- -->
          <div id="body-footer">
-            <!--  -->
+            <div class="body-footer-section">
+               <div id="footer-inbox-size">
+                  <i class="fa-solid fa-hard-drive"></i>
+                  <span id="inbox-size"></span>
+               </div>
+            </div>
+            <div class="body-footer-section">
+               <div id="footer-links">
+                  <a href="https://github.com/74C17N3P7UN3/MailTent" target="_blank">
+                     <i class="fa-solid fa-code"></i>
+                     Repo
+                  </a>
+                  <span class="links-separator">·</span>
+                  <a href="https://github.com/74C17N3P7UN3" target="_blank">
+                     <i class="fa-brands fa-github-alt"></i>
+                     Profile
+                  </a>
+               </div>
+            </div>
+            <div class="body-footer-section">
+               <div id="footer-credits">
+                  <i class="fa-regular fa-copyright"></i>
+                  Leonardo, 2022
+               </div>
+            </div>
          </div>
       </div>
       <div id="compose-view" class="body-view">
