@@ -41,7 +41,11 @@
    --gloss-bg: #ECF0F199;
    --white: #ECF0F1;
    /* Fixed Spacings */
-   --margin-nav: calc(1rem + 3px + .5rem + 1em + .5rem + 3px + 1rem + 3px);
+   --navbar-height: calc(1rem + 3px + .5rem + 1em + .5rem + 3px + 1rem + 3px);
+   --body-height: calc(100vh - var(--navbar-height) - 1rem * 2);
+   --header-height: calc(0.5rem + 0.5rem + 1em + 0.5rem + 0.5rem + 2px);
+   --emails-height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
+   --footer-height: calc(2px + 0.5rem + 1em + 0.5rem + 10px);
    --sidebar-width: 15rem;
 }
 

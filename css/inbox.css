@@ -8,9 +8,9 @@ body {
 /* --------------- Side Bar --------------- */
 aside {
    position: absolute;
-   height: calc(100vh - var(--margin-nav) - 1rem * 2);
+   height: calc(100vh - var(--navbar-height) - 1rem * 2);
    width: var(--sidebar-width);
-   margin-top: calc(var(--margin-nav) + 1rem);
+   margin-top: calc(var(--navbar-height) + 1rem);
 }
 
 div#compose {
@@ -56,12 +56,13 @@ div.sidebar-icon {
 
 /* --------------- Inbox --------------- */
 div#body-container {
-   height: calc(100vh - var(--margin-nav) - 1rem * 2);
+   height: var(--body-height);
    width: calc(100vw - var(--sidebar-width) - 1rem - 1rem);
-   margin-top: calc(var(--margin-nav) + 1rem);
+   margin-top: calc(var(--navbar-height) + 1rem);
    margin-left: calc(var(--sidebar-width) + 1rem);
    background: var(--gloss-bg);
    border-radius: 1rem;
+   overflow-y: hidden;
 }
 
 div#body-header {
@@ -85,6 +86,12 @@ div#header-refresh:hover,
 div#header-read-all:hover {
    background: var(--gloss-bg);
    cursor: pointer;
+}
+
+div#body-emails {
+   margin-right: 5px;
+   height: var(--emails-height);
+   overflow-y: scroll;
 }
 
 div.email {

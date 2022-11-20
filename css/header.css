@@ -44,4 +44,4 @@ header .header-section {
    cursor: pointer;
 }
 
-#header-form a i { padding-left: 2px }
+#header-form a i { margin-left: 2px }
