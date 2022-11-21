@@ -1,7 +1,9 @@
+/* --------------- Dynamic Texts --------------- */
 let emailCount = document.getElementById('header-total-email')
 let inboxDiv = document.getElementById('body-emails')
 let diskSpace = document.getElementById('inbox-size')
 
+/* --------------- Dynamic Headers --------------- */
 let inboxView = document.getElementById('inbox-view')
 let composeView = document.getElementById('compose-view')
 

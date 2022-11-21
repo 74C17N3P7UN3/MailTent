@@ -1,5 +1,15 @@
-<?php include 'php/session.php'; handle_inbox() ?>
-<?php include 'php/fetcher.php'; fetch_emails($_SESSION['email']) ?>
+<?php
+
+// Session handling
+include 'php/session.php';
+handle_inbox();
+
+// Inbox and users fetching
+include 'php/fetcher.php';
+fetch_emails($_SESSION['email']);
+fetch_users();
+
+?>
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
@@ -16,9 +26,11 @@
    <link rel="stylesheet" href="/css/FontKit/style.css">
    <!-- --------------- Scripts --------------- -->
    <script>
-      /* Get user's emails into js */
+      /* Get PHP data into js */
       var userEmails = <?php echo $userEmails ?>
       var userSpace = <?php echo $userSpace ?>
+
+      var everyUser = <?php echo $registeredUsers ?>
    </script>
    <script src="/scripts/inbox-syncronizer.js"></script>
    <script defer src="/scripts/dropdown-menu.js"></script>
