@@ -83,20 +83,40 @@
             </div>
             <span>Sent</span>
          </li>
+         <li id="trash" class="sidebar-option">
+            <div class="sidebar-icon">
+               <i class="fa-solid fa-trash-can"></i>
+            </div>
+            <span>Trash</span>
+         </li>
       </ul>
    </aside>
    <!-- --------------- Inbox --------------- -->
    <div id="body-container">
-      <div id="inbox-view" class="body-view">
+      <div id="inbox-view" class="body-view show">
          <!-- --------------- Header --------------- -->
          <div id="body-header">
             <div class="body-header-section">
-               <div id="header-refresh">
+               <div id="header-refresh" class="header-btn show">
                   <i class="fa-solid fa-rotate-right"></i>
                </div>
-               <div id="header-read-all">
+               <div id="header-read-all" class="header-btn show">
                   <i class="fa-solid fa-envelope-open"></i>
                </div>
+               <!-- Trash Confirmation -->
+               <div id="header-trash" class="header-btn">
+                  <i class="fa-solid fa-trash-can"></i>
+               </div>
+               <span id="trash-confirm">
+                  Delete all trashed emails?
+               </span>
+               <div id="trash-confirm-check" class="header-btn">
+                  <i class="fa-solid fa-square-check"></i>
+               </div>
+               <div id="trash-confirm-cross" class="header-btn">
+                  <i class="fa-solid fa-square-xmark"></i>
+               </div>
+               <!-- End -->
             </div>
             <div class="body-header-section">
                <div id="header-total-email"></div>

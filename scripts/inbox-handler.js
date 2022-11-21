@@ -2,15 +2,22 @@ let emailCount = document.getElementById('header-total-email')
 let inboxDiv = document.getElementById('body-emails')
 let diskSpace = document.getElementById('inbox-size')
 
+let inboxView = document.getElementById('inbox-view')
+let composeView = document.getElementById('compose-view')
+
+let composeBtn = document.getElementById('compose')
 let inboxBtn = document.getElementById('inbox')
 let starredBtn = document.getElementById('starred')
 let draftsBtn = document.getElementById('drafts')
 let sentBtn = document.getElementById('sent')
+let trashBtn = document.getElementById('trash')
 
+setPage(composeBtn, 'compose')
 setPage(inboxBtn, 'inbox')
 setPage(starredBtn, 'starred')
 setPage(draftsBtn, 'drafts')
 setPage(sentBtn, 'sent')
+setPage(trashBtn, 'trash')
 
 let refreshBtn = document.getElementById('header-refresh')
 refreshBtn.addEventListener('click', () => { location.reload() })
@@ -19,7 +26,16 @@ updateView('inbox')
 
 function updateView(page) {
 
-   if (page != 'compose') {
+   if (page != 'compose' && page != 'trash') {
+      // Remove compose view
+      composeView.classList.remove('show')
+      inboxView.classList.add('show')
+      // Remove trashBtn
+      deleteAllBtn.classList.remove('show')
+      readAllBtn.classList.add('show')
+      // Reset deletion prompt
+      resetDeletion()
+
       let emailArr = []
 
       userEmails.emails.forEach(email => {
@@ -30,14 +46,38 @@ function updateView(page) {
             emailArr.push(email)
       })
 
-      emailCount.innerHTML = `Total emails: ${emailArr.length}`
-      inboxDiv.innerHTML = arrToList(emailArr)
+      emailCount.innerHTML = `Displayed emails: ${emailArr.length}/${userEmails.emails.length}`
+      inboxDiv.innerHTML = arrToList(emailArr, 'star')
+      diskSpace.innerHTML = bytesConversion(userSpace)
 
       getEmails()
+   } else if (page == 'trash') {
+      // Remove compose view
+      composeView.classList.remove('show')
+      inboxView.classList.add('show')
+      // Remove readAllBtn
+      readAllBtn.classList.remove('show')
+      deleteAllBtn.classList.add('show')
+
+      let emailArr = []
+
+      userEmails.emails.forEach(email => {
+         if (email.location == page)
+            emailArr.push(email)
+         // If on starred page, check starred value
+         if (page == 'starred' && email.starred)
+            emailArr.push(email)
+      })
+
+      emailCount.innerHTML = `Displayed emails: ${emailArr.length}/${userEmails.emails.length}`
+      inboxDiv.innerHTML = arrToList(emailArr, 'trash')
       diskSpace.innerHTML = bytesConversion(userSpace)
-   }
-   else {
-      //
+
+      getEmails()
+   } else {
+      // Remove inbox view
+      inboxView.classList.remove('show')
+      composeView.classList.add('show')
    }
 
 }
@@ -55,7 +95,7 @@ function setPage(btn, page) {
 }
 
 /* --------------- Utils Functions --------------- */
-function arrToList(arr) {
+function arrToList(arr, action) {
 
    let htmlList = ''
 
@@ -64,12 +104,17 @@ function arrToList(arr) {
       htmlList += `<div id="${email.timestamp}" class="email `
       if (!email.read) htmlList += 'unread '
       htmlList += 'no-select">'
-      // Star icon
-      htmlList += '\n\t<div class="email-star">'
-      if (!email.starred)
-         htmlList += '<i class="fa-regular fa-star"></i>'
-      else htmlList += '<i class="fa-solid fa-star"></i>'
-      htmlList += '</div>'
+      if (action == 'star') { // Star icon
+         htmlList += '\n\t<div class="email-star">'
+         if (!email.starred)
+            htmlList += '<i class="fa-regular fa-star"></i>'
+         else htmlList += '<i class="fa-solid fa-star"></i>'
+         htmlList += '</div>'
+      } else if (action == 'trash') { //Trash icon
+         htmlList += '\n\t<div class="email-trash">'
+         htmlList += '<i class="fa-regular fa-trash-can"></i>'
+         htmlList += '</div>'
+      }
       // Recipients
       htmlList += '\n\t<div class="email-recipients">You'
       email.recipients.forEach(recipient => {
@@ -110,6 +155,14 @@ function bytesConversion(bytes) {
 
 function unixToDate(unixTime) {
 
+   function calcMinutes() {
+
+      let minutes = date.getMinutes()
+      if (minutes < 10) return '0' + minutes
+      else return minutes
+
+   }
+
    let months = [
       'Jan',
       'Feb',
@@ -128,7 +181,7 @@ function unixToDate(unixTime) {
    let date = new Date(unixTime * 1000)
 
    if (new Date().toDateString() == date.toDateString())
-      return date.getHours() + ':' + date.getMinutes()
+      return date.getHours() + ':' + calcMinutes()
    return date.getDate() + ' ' + months[date.getMonth()]
 
 }

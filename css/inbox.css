@@ -65,6 +65,9 @@ div#body-container {
    overflow-y: hidden;
 }
 
+div.body-view { display: none }
+div.body-view.show { display: unset }
+
 div#body-header {
    display: flex;
    justify-content: space-between;
@@ -77,16 +80,34 @@ div#body-header {
 div.body-header-section { display: flex }
 div.body-header-section div { padding: .5rem .6rem }
 
-div#header-refresh,
-div#header-read-all {
+div.header-btn {
+   display: none;
    border-radius: 2rem;
    transition: .2s;
 }
-div#header-refresh:hover,
-div#header-read-all:hover {
+div.header-btn.show { display: unset }
+div.header-btn:hover {
    background: var(--gloss-bg);
    cursor: pointer;
 }
+
+span#trash-confirm {
+   display: none;
+   padding: .5rem;
+}
+span#trash-confirm.show { display: unset }
+span#trash-confirm i.fa-square-check {
+   padding-left: .5rem;
+   color: var(--nephritis);
+}
+span#trash-confirm i.fa-square-xmark {
+   padding-left: .2rem;
+   color: var(--pomegranate);
+}
+span#trash-confirm i:hover { cursor: pointer }
+
+div#trash-confirm-check { color: var(--nephritis) }
+div#trash-confirm-cross { color: var(--pomegranate) }
 
 div#body-emails {
    margin-right: 5px;
@@ -107,13 +128,15 @@ div.email:hover {
 div.email.unread { font-weight: bold }
 span.email-text { font-weight: normal }
 
-div.email-star {
+div.email-star,
+div.email-trash {
    margin-right: 1rem;
    border-radius: 1rem;
    color: var(--asbestos);
    transition: .2s;
 }
-div.email-star:hover i { color: #000 }
+div.email-star:hover i,
+div.email-trash:hover i { color: #000 }
 div.email-star i.fa-solid { color: var(--theme) }
 
 div.email-recipients,
