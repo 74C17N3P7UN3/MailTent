@@ -180,3 +180,47 @@ div#footer-links a {
 div#footer-links a:hover { color: var(--theme) }
 
 div#footer-credits i { font-size: 0.8em }
+
+/* --------------- Compose View --------------- */
+div#new-message {
+   display: flex;
+   margin-bottom: 2px;
+   padding: 1rem 1.6rem;
+   box-shadow: 0 2px var(--theme);
+   border-radius: 1rem 1rem 0 0;
+}
+
+div.input-container {
+   margin-inline: 1.6rem;
+   margin-bottom: 1px;
+   box-shadow: 0 1px var(--theme);
+}
+
+div#mail-text {
+   /* FIXME: height: calc(100% - var(--compose-margin-top)); */
+   margin-inline: 1.6rem;
+}
+div#mail-text textarea {
+   /* Remove default style */
+   appearance: none;
+   resize: none;
+   border: 0;
+   background: transparent;
+   /* End */
+   height: 100%;
+   width: 100%;
+   padding: .5rem 5px .5rem 0;
+   overflow-y: auto;
+}
+
+div#compose-view input {
+   /* Remove default style */
+   appearance: none;
+   border: 0;
+   background: transparent;
+   /* End */
+   height: 100%;
+   width: 100%;
+   padding-block: .5rem;
+}
+div#compose-view input::placeholder { color: #000 }

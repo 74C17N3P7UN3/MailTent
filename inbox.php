@@ -169,7 +169,26 @@ fetch_users();
          </div>
       </div>
       <div id="compose-view" class="body-view">
-         <!--  -->
+         <!-- --------------- Header --------------- -->
+         <div id="new-message" class="bold">New Message</div>
+         <!-- --------------- Recipients and Subject --------------- -->
+         <div id="mail-to" class="input-container">
+            <input type="text" id="mail-to-input" placeholder="Recipients">
+         </div>
+         <div id="mail-subject" class="input-container">
+            <input type="text" id="mail-subject-input" placeholder="Subject">
+         </div>
+         <!-- --------------- Textarea --------------- -->
+         <div id="mail-text">
+            <textarea id="mail-text-input"></textarea>
+         </div>
+         <!-- --------------- Footer --------------- -->
+         <div id="mail-footer">
+            <div id="mail-send-btn">
+               <i class="fa-solid fa-paper-plane"></i>
+               Send
+            </div>
+         </div>
       </div>
    </div>
    <!-- --------------- Color Selection --------------- -->
@@ -188,7 +207,7 @@ fetch_users();
          trigger="loop"
          colors="primary:#121331,secondary:#ECF0F1"
          style="width:350px;height:350px">
-      </lord-icon> -->
-   </div>
+      </lord-icon>
+   </div> -->
 </body>
 </html>

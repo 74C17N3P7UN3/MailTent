@@ -3,6 +3,9 @@ readAllBtn.addEventListener('click', readAll)
 let deleteAllBtn = document.getElementById('header-trash')
 deleteAllBtn.addEventListener('click', confirmDeletion)
 
+let composeText = document.getElementById('mail-text-input')
+// composeText.addEventListener('keyup', ) // FIXME: Add function
+
 /* --------------- Get Emails and Action --------------- */
 let emailList = document.querySelectorAll('.email')
 function getEmails() {

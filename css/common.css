@@ -46,6 +46,8 @@
    --emails-height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
    --footer-height: calc(2px + 0.5rem + 1em + 0.5rem + 10px);
    --sidebar-width: 15rem;
+   --compose-input: calc(.5rem + 1em + .5rem + 1px);
+   --compose-margin-top: calc(1rem + 1em + 1rem + 2px + var(--compose-input) * 2);
 }
 
 /* --------------- Custom Themes --------------- */

@@ -24,7 +24,7 @@ setPage(trashBtn, 'trash')
 let refreshBtn = document.getElementById('header-refresh')
 refreshBtn.addEventListener('click', () => { location.reload() })
 
-updateView('inbox')
+updateView('compose') // FIXME: Back to inbox
 
 function updateView(page) {
 
