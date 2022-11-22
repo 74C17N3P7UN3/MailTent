@@ -110,9 +110,12 @@ div#trash-confirm-check { color: var(--nephritis) }
 div#trash-confirm-cross { color: var(--pomegranate) }
 
 div#body-emails {
-   margin-right: 5px;
    height: var(--emails-height);
-   overflow-y: scroll;
+   overflow-y: auto;
+}
+div#body-emails.overflow {
+   margin-right: 5px;
+   padding-right: 5px;
 }
 
 div.email {

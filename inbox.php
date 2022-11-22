@@ -18,6 +18,7 @@ fetch_users();
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- --------------- Jquery Library --------------- -->
    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+   <script defer src="/scripts/libraries/jquery.js"></script>
    <!-- --------------- Icons Script --------------- -->
    <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
    <script src="https://kit.fontawesome.com/6fb1d65783.js"></script>

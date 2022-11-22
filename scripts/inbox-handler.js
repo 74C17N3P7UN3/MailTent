@@ -49,8 +49,12 @@ function updateView(page) {
       })
 
       emailCount.innerHTML = `Displayed emails: ${emailArr.length}/${userEmails.emails.length}`
-      inboxDiv.innerHTML = arrToList(emailArr, 'star')
       diskSpace.innerHTML = bytesConversion(userSpace)
+
+      inboxDiv.innerHTML = arrToList(emailArr, 'star')
+      // Display scrollbar if needed
+      if (hasScrollBar(inboxDiv)) inboxDiv.classList.add('overflow')
+      else inboxDiv.classList.remove('overflow')
 
       getEmails()
    } else if (page == 'trash') {
@@ -72,8 +76,12 @@ function updateView(page) {
       })
 
       emailCount.innerHTML = `Displayed emails: ${emailArr.length}/${userEmails.emails.length}`
-      inboxDiv.innerHTML = arrToList(emailArr, 'trash')
       diskSpace.innerHTML = bytesConversion(userSpace)
+
+      inboxDiv.innerHTML = arrToList(emailArr, 'trash')
+      // Display scrollbar if needed
+      if (hasScrollBar(inboxDiv)) inboxDiv.classList.add('overflow')
+      else inboxDiv.classList.remove('overflow')
 
       getEmails()
    } else {
