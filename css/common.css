@@ -48,6 +48,8 @@
    --sidebar-width: 15rem;
    --compose-input: calc(.5rem + 1em + .5rem + 1px);
    --compose-margin-top: calc(1rem + 1em + 1rem + 2px + var(--compose-input) * 2);
+   --compose-footer-height: calc(2px + .5rem + .5rem + 1em + .5rem + .5rem);
+   --compose-text-height: calc(100% - var(--compose-margin-top) - var(--compose-footer-height));
 }
 
 /* --------------- Custom Themes --------------- */

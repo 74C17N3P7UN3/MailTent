@@ -197,7 +197,7 @@ div.input-container {
 }
 
 div#mail-text {
-   /* FIXME: height: calc(100% - var(--compose-margin-top)); */
+   height: var(--compose-text-height);
    margin-inline: 1.6rem;
 }
 div#mail-text textarea {
@@ -224,3 +224,33 @@ div#compose-view input {
    padding-block: .5rem;
 }
 div#compose-view input::placeholder { color: #000 }
+
+div#mail-footer {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 2px;
+   padding: .5rem 1rem;
+   box-shadow: 0 -2px var(--theme);
+   border-radius: 0 0 1rem 1rem;
+}
+
+div.compose-footer-section { display: flex }
+div.compose-footer-section div { padding: .5rem .6rem }
+
+div#mail-send-btn {
+   background: var(--theme);
+   color: var(--white);
+   border-radius: 1rem;
+   cursor: pointer;
+}
+div#mail-send-btn i { margin-right: 2px }
+
+div.footer-btn {
+   border-radius: 2rem;
+   transition: .2s;
+}
+div.footer-btn:hover {
+   background: var(--gloss-bg);
+   cursor: pointer;
+}

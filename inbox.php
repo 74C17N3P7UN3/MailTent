@@ -184,9 +184,19 @@ fetch_users();
          </div>
          <!-- --------------- Footer --------------- -->
          <div id="mail-footer">
-            <div id="mail-send-btn">
-               <i class="fa-solid fa-paper-plane"></i>
-               Send
+            <div class="compose-footer-section">
+               <div id="mail-send-btn">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  Send
+               </div>
+            </div>
+            <div class="compose-footer-section">
+               <div id="compose-last-edited"></div>
+            </div>
+            <div class="compose-footer-section">
+               <div id="mail-delete-draft" class="footer-btn">
+                  <i class="fa-solid fa-trash-can"></i>
+               </div>
             </div>
          </div>
       </div>
