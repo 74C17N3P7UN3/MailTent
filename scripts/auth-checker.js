@@ -155,11 +155,14 @@ function checkValid(input, flags, charset, checkLen) {
 
 }
 
+// Set error flag by default
+document.cookie = 'reg-submit-flag=WhyAreYouHere;'
+
 function setLogSubmit() {
 
    if ((logEmailInput.value.match(emailChars))
       || logPswInput.value.match(pswChars)) {
-      document.cookie += 'login-submit-flag=WhyAreYouHere;'
+      document.cookie = 'login-submit-flag=WhyAreYouHere;'
       logSubmit.setAttribute('disabled', '')
    }
    else {
@@ -175,7 +178,7 @@ function setRegSubmit() {
       || regUserInput.value.length > 16
       || regEmailInput.value.match(emailChars)
       || regPswInput.value.match(pswChars)) {
-      document.cookie += 'reg-submit-flag=WhyAreYouHere;'
+      document.cookie = 'reg-submit-flag=WhyAreYouHere;'
       regSubmit.setAttribute('disabled', '')
    }
    else {
