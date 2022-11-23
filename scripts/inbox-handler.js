@@ -3,6 +3,18 @@ let emailCount = document.getElementById('header-total-email')
 let inboxDiv = document.getElementById('body-emails')
 let diskSpace = document.getElementById('inbox-size')
 
+let lastEdited = document.getElementById('compose-last-edited')
+
+/* --------------- Compose Fields --------------- */
+var edited = false, validRecipients = false, draftEmail
+let mailTo = document.getElementById('mail-to-input')
+let mailSubject = document.getElementById('mail-subject-input')
+let mailText = document.getElementById('mail-text-input')
+
+mailTo.addEventListener('keyup', saveDraft)
+mailSubject.addEventListener('keyup', saveDraft)
+mailText.addEventListener('keyup', saveDraft)
+
 /* --------------- Dynamic Headers --------------- */
 let inboxView = document.getElementById('inbox-view')
 let composeView = document.getElementById('compose-view')
@@ -14,6 +26,8 @@ let draftsBtn = document.getElementById('drafts')
 let sentBtn = document.getElementById('sent')
 let trashBtn = document.getElementById('trash')
 
+let options = document.querySelectorAll('.sidebar-option')
+
 setPage(composeBtn, 'compose')
 setPage(inboxBtn, 'inbox')
 setPage(starredBtn, 'starred')
@@ -24,11 +38,25 @@ setPage(trashBtn, 'trash')
 let refreshBtn = document.getElementById('header-refresh')
 refreshBtn.addEventListener('click', () => { location.reload() })
 
-updateView('compose') // FIXME: Back to inbox
+updateView('inbox')
+
+function setPage(btn, page) {
+
+   btn.addEventListener('click', () => {
+      options.forEach(option => {
+         option.classList.remove('selected')
+      })
+      btn.classList.add('selected')
+
+      updateView(page)
+   })
+
+}
 
 function updateView(page) {
 
    if (page != 'compose' && page != 'trash') {
+      /* --------------- Inbox Pages --------------- */
       // Remove compose view
       composeView.classList.remove('show')
       inboxView.classList.add('show')
@@ -40,7 +68,7 @@ function updateView(page) {
 
       let emailArr = []
 
-      userEmails.emails.forEach(email => {
+      userEmails.emails.slice().reverse().forEach(email => {
          if (email.location == page)
             emailArr.push(email)
          // If on starred page, check starred value
@@ -58,6 +86,7 @@ function updateView(page) {
 
       getEmails()
    } else if (page == 'trash') {
+      /* --------------- Trash Page --------------- */
       // Remove compose view
       composeView.classList.remove('show')
       inboxView.classList.add('show')
@@ -67,7 +96,7 @@ function updateView(page) {
 
       let emailArr = []
 
-      userEmails.emails.forEach(email => {
+      userEmails.emails.slice().reverse().forEach(email => {
          if (email.location == page)
             emailArr.push(email)
          // If on starred page, check starred value
@@ -85,22 +114,62 @@ function updateView(page) {
 
       getEmails()
    } else {
+      /* --------------- Compose Page --------------- */
       // Remove inbox view
       inboxView.classList.remove('show')
       composeView.classList.add('show')
+
+      // Reset fields
+      edited = false
+      validRecipients = false
+      mailTo.value = ''
+      mailSubject.value = ''
+      mailText.value = ''
    }
 
 }
 
-function setPage(btn, page) {
+function saveDraft() {
 
-   btn.addEventListener('click', () => {
-      let options = document.querySelectorAll('.sidebar-option')
-      options.forEach(option => { option.classList.remove('selected') })
-      btn.classList.add('selected')
+   if (!edited) {
+      let email = {
+         location: 'drafts',
+         timestamp: parseInt(Date.now() / 1000),
+         recipients: [],
+         subject: '',
+         text: '',
+         starred: false,
+         read: true
+      }
 
-      updateView(page)
-   })
+      userEmails.emails.push(email)
+      draftEmail = userEmails.emails[userEmails.emails.length - 1]
+
+      edited = true
+   }
+
+   draftEmail.timestamp = parseInt(Date.now() / 1000)
+   // Convert recipients emails to usernames array
+   let recipientsArr = mailTo.value.split(' ')
+   draftEmail.recipients = []
+
+   let BreakException = {}
+   try {
+      recipientsArr.forEach(recipient => {
+         let user = everyUser.users.find(e => e.email == recipient)
+         if (user == undefined) {
+            validRecipients = false
+            throw BreakException
+         }
+
+         draftEmail.recipients.push(user.username)
+         validRecipients = true
+      })
+   } catch (e) { if (e !== BreakException) throw e }
+   draftEmail.subject = mailSubject.value
+   draftEmail.text = mailText.value
+
+   lastEdited.innerHTML = `Last edited: ${unixToDate(draftEmail.timestamp)}`
 
 }
 
@@ -133,9 +202,9 @@ function arrToList(arr, action) {
       htmlList += '</div>'
       // Content
       htmlList += '\n\t<div class="email-content">'
-      // Object
-      htmlList += '\n\t\t<span class="email-object bold">' +
-         email.object +
+      // Subject
+      htmlList += '\n\t\t<span class="email-subject bold">' +
+         email.subject +
          '</span>'
       // Text
       htmlList += '\n\t\t<span class="email-text">-</span>' +

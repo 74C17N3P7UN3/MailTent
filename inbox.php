@@ -189,6 +189,7 @@ fetch_users();
                   <i class="fa-solid fa-paper-plane"></i>
                   Send
                </div>
+               <div id="mail-send-alert"></div>
             </div>
             <div class="compose-footer-section">
                <div id="compose-last-edited"></div>

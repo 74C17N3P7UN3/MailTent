@@ -246,6 +246,11 @@ div#mail-send-btn {
 }
 div#mail-send-btn i { margin-right: 2px }
 
+div#mail-send-alert {
+   color: var(--pomegranate);
+}
+div#mail-send-alert i { margin-right: 2px }
+
 div.footer-btn {
    border-radius: 2rem;
    transition: .2s;

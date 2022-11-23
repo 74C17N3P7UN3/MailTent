@@ -38,22 +38,22 @@ deleteCookies()
 function getCookies() {
 
    cookieList = decodeURIComponent(document.cookie)
-   cookieArr = cookieList.split(';');
+   cookieArr = cookieList.split(';')
 
 }
 
 function deleteCookies() {
 
-   getCookies(); // Get cookies array
+   getCookies() // Get cookies array
 
    setTimeout(() => {
 
       for (let i = 0; i < cookieArr.length; i++)
          document.cookie = cookieArr[i] + '=;expires=' + new Date(0).toUTCString()
 
-      getCookies(); // In case of a console.log
+      getCookies() // In case of a console.log
 
-   }, 10);
+   }, 10)
 
 }
 
@@ -97,12 +97,12 @@ regEmailInput.addEventListener('keyup', () => {
 })
 regPswInput.addEventListener('keyup', () => {
 
-   let strength = 0;
-   if (regPswInput.value.match(/[a-z]/)) strength++;
-   if (regPswInput.value.match(/[A-Z]/)) strength++;
-   if (regPswInput.value.match(/[0-9]/)) strength++;
-   if (regPswInput.value.match(/[!@#$%^&*]/)) strength++;
-   if (regPswInput.value.match(/.{8,}/)) strength++;
+   let strength = 0
+   if (regPswInput.value.match(/[a-z]/)) strength++
+   if (regPswInput.value.match(/[A-Z]/)) strength++
+   if (regPswInput.value.match(/[0-9]/)) strength++
+   if (regPswInput.value.match(/[!@#$%^&*]/)) strength++
+   if (regPswInput.value.match(/.{8,}/)) strength++
 
    if (strength == 1) regPswFlags.innerHTML = pswVeryWeak
    else if (strength == 2) regPswFlags.innerHTML = pswWeak

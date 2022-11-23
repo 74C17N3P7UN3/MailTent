@@ -3,8 +3,8 @@ readAllBtn.addEventListener('click', readAll)
 let deleteAllBtn = document.getElementById('header-trash')
 deleteAllBtn.addEventListener('click', confirmDeletion)
 
-let composeText = document.getElementById('mail-text-input')
-// composeText.addEventListener('keyup', ) // FIXME: Add function
+let composeSend = document.getElementById('mail-send-btn')
+composeSend.addEventListener('click', sendEmail)
 
 /* --------------- Get Emails and Action --------------- */
 let emailList = document.querySelectorAll('.email')
@@ -54,6 +54,34 @@ function deleteEmail(e) {
    userEmails.emails.splice(index, 1)
 
    updateView('trash')
+
+}
+
+let sendAlert = document.getElementById('mail-send-alert')
+function sendEmail() {
+
+   let errorMsg = '<i class="fa-solid fa-circle-exclamation"></i> '
+
+   if (mailSubject.value == '')
+      errorMsg += 'Subject is missing.'
+   else if (mailText.value == '')
+      errorMsg += 'Email body is empty.'
+   else if (!validRecipients) {
+      errorMsg += 'Invalid recipients: ['
+      mailTo.value.split(' ').forEach(recipient => {
+         let user = everyUser.users.find(e => e.email == recipient)
+         if (user == undefined)
+            errorMsg += `"${recipient}", `
+      })
+      errorMsg = errorMsg.substring(0, errorMsg.length - 2)
+      errorMsg += ']'
+   } else {
+      // Save client
+      // Send request to server
+   }
+
+   if (errorMsg != '<i class="fa-solid fa-circle-exclamation"></i> ')
+      sendAlert.innerHTML = errorMsg
 
 }
 
