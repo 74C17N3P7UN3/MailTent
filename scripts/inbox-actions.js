@@ -79,9 +79,21 @@ function sendEmail() {
       errorMsg = errorMsg.substring(0, errorMsg.length - 2)
       errorMsg += ']'
    } else {
+      activeMail.location = 'inbox'
+      activeMail.starred = false
+      activeMail.read = false
+
+      let formData = new FormData()
+      activeMail.recipients.forEach(recipient => {
+         formData.append("recipients", recipient)
+      })
+      formData.append("email", JSON.stringify(activeMail))
+
+      navigator.sendBeacon('/php/sender.php', formData)
+
       activeMail.location = 'sent'
+      activeMail.read = true
       updateView('inbox')
-      // Send request to server
    }
 
    if (errorMsg != '<i class="fa-solid fa-circle-exclamation"></i> ')

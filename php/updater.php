@@ -21,6 +21,7 @@ if (!empty($_POST['emails'])) {
       $exists = false;
       foreach ($clientJson -> {'emails'} as $clientEmail) {
          if ($clientEmail -> {'timestamp'} == $emailId) {
+            // FIXME: Update trash logic so that server deletes it
             $exists = true;
          }
       }

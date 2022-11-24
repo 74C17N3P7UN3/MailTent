@@ -4,7 +4,7 @@ window.addEventListener("beforeunload", () => {
 
 function syncEmails(json) {
 
-   var formData = new FormData()
+   let formData = new FormData()
    formData.append("emails", JSON.stringify(json))
 
    navigator.sendBeacon('/php/updater.php', formData)
