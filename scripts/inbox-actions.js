@@ -41,6 +41,9 @@ function starEmail(e) {
       }
    })
 
+   if (starredBtn.classList.contains('selected'))
+      updateView('starred')
+
 }
 
 function deleteEmail(e) {
@@ -76,7 +79,8 @@ function sendEmail() {
       errorMsg = errorMsg.substring(0, errorMsg.length - 2)
       errorMsg += ']'
    } else {
-      // Save client
+      activeMail.location = 'sent'
+      updateView('inbox')
       // Send request to server
    }
 

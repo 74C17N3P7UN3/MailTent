@@ -38,6 +38,7 @@ setPage(trashBtn, 'trash')
 let refreshBtn = document.getElementById('header-refresh')
 refreshBtn.addEventListener('click', () => { location.reload() })
 
+var activeMail
 updateView('inbox')
 
 function setPage(btn, page) {
@@ -65,6 +66,9 @@ function updateView(page) {
       readAllBtn.classList.add('show')
       // Reset deletion prompt
       resetDeletion()
+      // Purge empty drafts
+      if (page == 'drafts')
+         purgeDrafts()
 
       let emailArr = []
 
@@ -134,7 +138,7 @@ function saveDraft() {
    if (!edited) {
       let email = {
          location: 'drafts',
-         timestamp: parseInt(Date.now() / 1000),
+         timestamp: Date.now(),
          recipients: [],
          subject: '',
          text: '',
@@ -148,7 +152,8 @@ function saveDraft() {
       edited = true
    }
 
-   draftEmail.timestamp = parseInt(Date.now() / 1000)
+   draftEmail.timestamp = Date.now()
+   activeMail = draftEmail
    // Convert recipients emails to usernames array
    let recipientsArr = mailTo.value.split(' ')
    draftEmail.recipients = []
@@ -170,6 +175,24 @@ function saveDraft() {
    draftEmail.text = mailText.value
 
    lastEdited.innerHTML = `Last edited: ${unixToDate(draftEmail.timestamp)}`
+
+}
+
+function purgeDrafts() {
+
+   let indexes = []
+
+   for (let i = 0; i < userEmails.emails.length; i++) {
+      let email = userEmails.emails[i]
+
+      if (email.recipients.length == 0
+         && email.subject == ''
+         && email.text == '')
+         indexes.push(i)
+   }
+
+   for (let i = 0; i < indexes.length; i++)
+      userEmails.emails.splice(indexes[i] - i, 1)
 
 }
 
@@ -257,7 +280,7 @@ function unixToDate(unixTime) {
       'Dec'
    ]
 
-   let date = new Date(unixTime * 1000)
+   let date = new Date(unixTime)
 
    if (new Date().toDateString() == date.toDateString())
       return date.getHours() + ':' + calcMinutes()
