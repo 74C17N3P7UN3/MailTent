@@ -85,7 +85,7 @@ function sendEmail() {
 
       let formData = new FormData()
       activeMail.recipients.forEach(recipient => {
-         formData.append("recipients", recipient)
+         formData.append("recipients[]", recipient)
       })
       formData.append("email", JSON.stringify(activeMail))
 

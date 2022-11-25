@@ -103,9 +103,6 @@ function updateView(page) {
       userEmails.emails.slice().reverse().forEach(email => {
          if (email.location == page)
             emailArr.push(email)
-         // If on starred page, check starred value
-         if (page == 'starred' && email.starred)
-            emailArr.push(email)
       })
 
       emailCount.innerHTML = `Displayed emails: ${emailArr.length}/${userEmails.emails.length}`
