@@ -30,6 +30,8 @@ fetch_users();
    <!-- --------------- Scripts --------------- -->
    <script>
       /* Get PHP data into js */
+      var loggedUserEmail = "<?php echo $_SESSION['email'] ?>"
+
       var userEmails = <?php echo $userEmails ?>
       var userSpace = <?php echo $userSpace ?>
 

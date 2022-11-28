@@ -84,10 +84,13 @@ function sendEmail() {
       activeMail.read = false
 
       let formData = new FormData()
+      let user = everyUser.users.find(e => e.email == loggedUserEmail)
+      formData.append('sender', user.username)
+
       activeMail.recipients.forEach(recipient => {
-         formData.append("recipients[]", recipient)
+         formData.append('recipients[]', recipient)
       })
-      formData.append("email", JSON.stringify(activeMail))
+      formData.append('email', JSON.stringify(activeMail))
 
       navigator.sendBeacon('/php/sender.php', formData)
 
