@@ -21,13 +21,19 @@ if (!empty($_POST['emails'])) {
       $exists = false;
       foreach ($clientJson -> {'emails'} as $clientEmail) {
          if ($clientEmail -> {'timestamp'} == $emailId) {
-            // FIXME: Update trash logic so that server deletes it
             $exists = true;
          }
       }
 
       if (!$exists) {
          array_push($clientJson -> {'emails'}, $email);
+      }
+   }
+
+   // Also deleted emails server-side
+   foreach ($clientJson -> {'emails'} as $key => $email) {
+      if ($email -> location == 'deleted') {
+         unset($clientJson -> {'emails'}[$key]);
       }
    }
 

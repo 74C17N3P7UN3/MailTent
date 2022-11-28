@@ -50,11 +50,11 @@ function deleteEmail(e) {
 
    let emailId = e.path[2].id
 
-   let index = userEmails.emails.findIndex(email => {
-      email.timestamp == emailId
-   })
+   let email = userEmails.emails.find(
+      email => email.timestamp == emailId
+   )
 
-   userEmails.emails.splice(index, 1)
+   email.location = 'deleted'
 
    updateView('trash')
 
