@@ -21,10 +21,28 @@ function getEmails() {
    })
 
    emailList = document.querySelectorAll('.email')
+   emailList.forEach(email => {
+      email.addEventListener('click', (e) => { viewEmail(e) })
+   })
 
 }
 
 /* --------------- Single Actions --------------- */
+function viewEmail(e) {
+
+   let targetEmail = e.path[1]
+   let emailId = targetEmail.id
+
+   if (targetEmail.classList.contains('unread'))
+      targetEmail.classList.remove('unread')
+
+   userEmails.emails.forEach(email => {
+      if (email.timestamp == emailId)
+         email.read = true
+   })
+
+}
+
 function starEmail(e) {
 
    let star = e.target
