@@ -104,8 +104,14 @@ regPswInput.addEventListener('keyup', () => {
    if (regPswInput.value.match(/[!@#$%^&*]/)) strength++
    if (regPswInput.value.match(/.{8,}/)) strength++
 
-   if (strength == 1) regPswFlags.innerHTML = pswVeryWeak
-   else if (strength == 2) regPswFlags.innerHTML = pswWeak
+   if (strength == 1) {
+      regPswFlags.innerHTML = pswVeryWeak
+      regPswFlags.classList.remove('blue', 'green', 'orange')
+   }
+   else if (strength == 2) {
+      regPswFlags.innerHTML = pswWeak
+      regPswFlags.classList.remove('blue', 'green', 'orange')
+   }
    else if (strength == 3) {
       regPswFlags.innerHTML = pswMedium
       regPswFlags.classList.remove('blue', 'green')
@@ -123,7 +129,7 @@ regPswInput.addEventListener('keyup', () => {
    }
 
    if (regPswInput.value.match(pswChars)) {
-      regPswFlags.innerHTML = pswInvalid
+      regPswFlags.innerHTML = charInvalid
       regPswFlags.classList.remove('blue', 'green', 'orange')
    }
 
