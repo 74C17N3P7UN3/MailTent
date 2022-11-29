@@ -31,11 +31,10 @@ fetch_users();
    <script>
       /* Get PHP data into js */
       var loggedUserEmail = "<?php echo $_SESSION['email'] ?>"
+      var everyUser = <?php echo $registeredUsers ?>
 
       var userEmails = <?php echo $userEmails ?>
       var userSpace = <?php echo $userSpace ?>
-
-      var everyUser = <?php echo $registeredUsers ?>
    </script>
    <script src="/scripts/inbox-syncronizer.js"></script>
    <script defer src="/scripts/dropdown-menu.js"></script>
@@ -217,13 +216,13 @@ fetch_users();
       </div>
    </div>
    <!-- --------------- Loading Overlay --------------- -->
-   <!-- <div id="loading-wait" class="show">
+   <div id="loading-wait" class="show">
       <lord-icon class="show"
          src="https://cdn.lordicon.com/ochimkct.json"
          trigger="loop"
          colors="primary:#121331,secondary:#ECF0F1"
          style="width:350px;height:350px">
       </lord-icon>
-   </div> -->
+   </div>
 </body>
 </html>

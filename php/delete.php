@@ -21,7 +21,6 @@ if (isset($_SESSION['email'])) {
    // Delete user's inbox
    $directory = '../database/users/';
    $fileName = $_SESSION['email'] . '.json';
-   copy('../database/init.json', $fileName);
    rename($directory . $fileName, $directory . 'deleted/'. $fileName);
 
    session_unset();
