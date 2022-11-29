@@ -57,8 +57,11 @@ fetch_users();
          <div id="profile-menu">
             <a id="profile-btn"><i class="fa-solid fa-user"></i></a>
             <div id="profile-menu-content">
-               <a href="/php/settings.php" class="menu-option">
+               <!-- <a href="/php/settings.php" class="menu-option">
                   <i class="fa-solid fa-gears"></i> Settings
+               </a> -->
+               <a href="/php/delete.php" class="menu-option">
+                  <i class="fa-solid fa-trash-can"></i> Delete
                </a>
                <a href="/php/logout.php" class="menu-option">
                   <i class="fa-solid fa-right-from-bracket"></i> Logout

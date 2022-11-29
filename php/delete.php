@@ -18,6 +18,12 @@ if (isset($_SESSION['email'])) {
    fwrite($pointerFile, $contents);
    fclose($pointerFile);
 
+   // Delete user's inbox
+   $directory = '../database/users/';
+   $fileName = $_SESSION['email'] . '.json';
+   copy('../database/init.json', $fileName);
+   rename($directory . $fileName, $directory . 'deleted/'. $fileName);
+
    session_unset();
    session_destroy();
 }
