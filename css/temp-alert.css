@@ -1,0 +1,33 @@
+div#temp-alert {
+   display: flex;
+   position: fixed;
+   top: 0;
+   right: 0;
+   margin-top: calc(var(--navbar-height) + 1rem);
+   margin-right: 5rem;
+   padding: 1rem;
+   align-items: center;
+   background: var(--sunflower);
+   border: 2px solid var(--theme);
+   border-radius: 1rem;
+   z-index: 100;
+   /* For the transition */
+   transform: translateX(calc(100% + 5rem));
+   animation: temp-alert 10s forwards;
+}
+@keyframes temp-alert {
+   20% { transform: translateX(calc(100% + 5rem)) }
+   40% { transform: translateX(0) }
+   80% { transform: translateX(0) }
+   100% { transform: translateX(calc(100% + 5rem)) }
+}
+
+div#temp-alert p#alert-message {
+   width: 10.5rem;
+   text-align: justify;
+   text-justify: inter-character;
+}
+div#temp-alert i {
+   margin-left: 1rem;
+   font-size: 3em;
+}

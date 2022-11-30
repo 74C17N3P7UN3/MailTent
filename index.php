@@ -21,6 +21,18 @@
    <script defer src="/scripts/theme-changer.js"></script>
 </head>
 <body>
+   <!-- --------------- Temporary Alert --------------- -->
+   <link rel="stylesheet" href="/css/temp-alert.css">
+   <div id="temp-alert">
+      <p id="alert-message">
+         Please note that this
+         website is still under
+         heavy development
+         as I lost motivation
+      </p>
+      <i class="fa-solid fa-circle-exclamation"></i>
+   </div>
+   <script src="/scripts/temp-alert.js"></script>
    <!-- --------------- Header --------------- -->
    <header>
       <div id="header-logo" class="header-section">

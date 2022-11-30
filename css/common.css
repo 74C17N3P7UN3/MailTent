@@ -155,7 +155,7 @@ div#loading-wait {
    background: var(--theme);
    opacity: 0;
    transition: ease-out .5s;
-   z-index: 100;
+   z-index: 10;
 }
 div#loading-wait.show { opacity: 1 }
 
