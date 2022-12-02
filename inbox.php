@@ -15,6 +15,7 @@ fetch_users();
 <head>
    <title>MailTent - Inbox</title>
    <meta charset="UTF-8">
+   <meta name="description" content="Your average mailing software">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- --------------- Jquery Library --------------- -->
    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
