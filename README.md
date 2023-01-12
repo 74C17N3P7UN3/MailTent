@@ -1,6 +1,6 @@
 <img align="right" height=200px src="assets/logo.png">
 
-# Mailtent
+# MailTent
 
 <div>
 
@@ -35,17 +35,17 @@ If you want to check out the result, see the [🏁️ Getting Started](#-getting
 
 ## 🏁 Getting Started
 
-If you want to check out the result, you can visit the website on [Altervista®](https://mailtent.altervista.org).\
+To see the result, you can visit the website on [Altervista®](https://mailtent.altervista.org).\
 Keep in mind that this is still in development and that Altervista has some [🚨️ Known Bugs](#-known-bugs).
 
 ## 🚨 Bug Reports
 
-If you want to contribute and report some bugs, feel free to open a new issue.\
-I'll get to it as soon as I rediscover this project as I now moved on to React projects.
+If you want to contribute and report bugs, feel free to open a [new issue](https://github.com/74C17N3P7UN3/MailTent/issues).\
+I can't promise I'll get to it though, as I now moved on to React projects.
 
 #### 🐞 Known Bugs
 
-- Altervista has some problems with syncing the database, in my local environment (and possibly other hosting websites) is working fine. I won't finx this as I moved on from PHP to newer technologies.
+- Altervista has some problems with syncing the database, in my local environment (and possibly other hosting websites) it works fine. I **won't fix** this as I moved on from PHP.
 
 ## ✍ Authors
 
